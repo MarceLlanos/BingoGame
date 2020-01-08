@@ -8,19 +8,43 @@ namespace BingoGame
 {
     class CardFactory : ICardFactory
     {
-        public ICard CreateCard(ICard card)
+        IOrchestrator orchestrator;
+
+        public CardFactory()
         {
-            switch (card.GetRange().GetStart())
+            orchestrator = new Orchestrator(new ConfigurationCard(new BingoDictionary()), new RandomGenerator());
+
+        }
+        public ICard CreateCard(ICard prototype)
+        {
+            var column = prototype.GetCardData().GetColumn();
+            ICardData cardData = CreateCardData(column);
+            var card = orchestrator.Orchestrate(new Card(cardData));
+            IBlankSpaces blankSpaces = CreateBlanckSpaces(column);
+
+            return new BingoCardBlankSpaces().DrawBlankSpaces(blankSpaces, card);
+        }
+
+        private IBlankSpaces CreateBlanckSpaces(int column)
+        {
+            switch (column)
             {
-                case 5:
-                    return new Orchestrator(new Card(new BingoRange(), 75), new RandomGenerator()).Orchestrate( new ConfigurationCard(new BingoDictionary()));
-                case 9:
-                    return new Orchestrator(new Card(new HousieRange(), 90), new RandomGenerator()).Orchestrate( new ConfigurationCard(new HousieDictionary()));
-                default:
-                    return new Orchestrator(new Card(new BingoRange(), 75), new RandomGenerator()).Orchestrate(new ConfigurationCard(new BingoDictionary()));
-
-
+                case 5: return new MiddleBingoDrawerBlankSpaces();
+                case 9: return new HousieDrawerBlankSpaces();
             }
+
+            return new MiddleBingoDrawerBlankSpaces();
+        }
+
+        private ICardData CreateCardData(int column)
+        {
+            switch (column)
+            {
+                case 5: return new BingoData();
+                case 9: return new HousieData();
+            }
+
+            return new BingoData();
         }
     }
 }

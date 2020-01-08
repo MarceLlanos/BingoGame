@@ -8,28 +8,37 @@ namespace BingoGame
 {
     class RandomGenerator : IRandomGenerator
     {
-        List<int> columns;
-        Random random = new Random();
+        Random random;
 
         public RandomGenerator()
         {
-            columns = new List<int>();
+            random = new Random();
         }
        
-        public List<int> GenerateRandomUniqueNumbers(IRange range, int quantity)
+        public List<int> GenerateDistinctRandomNumbers(IRange range, int quantity)
         {
-            for (int i = 0; i < quantity; i++)
+            var numbers = new List<int>();
+
+            while (numbers.Count < quantity)
             {
-                var randomNumber = random.Next(range.GetStart(), range.GetEnd());
-
-                if (!columns.Contains(randomNumber))
-                {
-                    columns.Add(randomNumber);
-
-                }
+                var randomNumber = GetRandomNumber(range);
+                AddToList(numbers, randomNumber);
             }
-            
-            return columns;
+
+            return numbers;
+        }
+
+        private static void AddToList(List<int> numbers, int randomNumber)
+        {
+            if (!numbers.Contains(randomNumber))
+            {
+                numbers.Add(randomNumber);
+            }
+        }
+
+        private int GetRandomNumber(IRange range)
+        {
+            return random.Next(range.GetStart(), range.GetEnd());
         }
     }
 }

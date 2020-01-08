@@ -8,14 +8,11 @@ namespace BingoGame
 {
     public interface ICard
     {
-        int GetQuantityBalls();
-        void SetQuantityBalls(int balls);
-        IRange GetRange();
-        //string[,] DrawCard(List<int> columnNumber);
-        void DrawCard(List<int> columnNumber, int column);
-        void BlankSpaces(List<int> rowBlankSpaces);
-        void showCard();
-
-
+        ICardData GetCardData();
+        string[,] GetCard();
+        string[,] Draw(List<int>randomNumbers, int columnIndex);
+        void SetCard(string[,] card);
+        //void BlankSpaces(List<int> rowBlankSpaces);
+        string PrintRow(int rowIndex);
     }
 }

@@ -8,6 +8,6 @@ namespace BingoGame
 {
     public interface IOrchestrator
     {
-        ICard Orchestrate(IConfigurationCard configurationCard);
+        ICard Orchestrate(ICard card);
     }
 }

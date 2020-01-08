@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    interface IBlankSpaces
+    public interface ICardDrawer
     {
-        ICard DrawBlankSpace(int quantity, ICard card);
+        string[,] DrawCard(List<int> randomNumbers, int column);
     }
 }

@@ -29,6 +29,7 @@ namespace BingoGame
             dictionary.Add(7, new Range(70, 79));
             dictionary.Add(8, new Range(80, 90));
         }
+
         public IDictionary<int, IRange> GetDictionaries()
         {
             return dictionary;

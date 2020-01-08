@@ -10,14 +10,14 @@ namespace BingoGame
     {
         static void Main(string[] args)
         {
-            var cardInfomation = new CardDataFactory();
-            var cards = new GeneratorCards();
+            var cardInfomation = new CardDataMenu();
+            var deckOfCards = new CardShuffler();
 
             Console.WriteLine("Choose the type of the game");
             Console.WriteLine("1 = 75 ball bingo Game.");
             Console.WriteLine("2 = 90 ball bingo Game or Housie/Bingo Game");
             string optionGame = Console.ReadLine();
-            var dataCard= cardInfomation.GetCardData(optionGame);
+            var card= cardInfomation.GetCardData(optionGame);
 
             Console.WriteLine("");
             Console.WriteLine("Choose mode to win the game.");
@@ -28,9 +28,12 @@ namespace BingoGame
             Console.WriteLine("");
             Console.WriteLine("How many cards do you want?");
             string optionQuantity = Console.ReadLine();
-            cards.GenerateCards(int.Parse(optionQuantity), dataCard);
-            dataCard.showCard();
+            deckOfCards.DeckOfCards(int.Parse(optionQuantity), card);
 
+            Console.WriteLine(" ");
+
+            deckOfCards.ShowDeckOfCards();
+            Console.ReadKey();
         }
     }
 }

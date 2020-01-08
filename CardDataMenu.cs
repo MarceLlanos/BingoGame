@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class CardDataFactory : ICardDataFactory
+    class CardDataMenu : ICardDataMenu
     {
         public ICard GetCardData(string option)
         {
             switch (option)
             {
                 case "1":
-                    return new Card(new Range(5,5), 75);
+                    return new Card(new BingoData());
                 case "2":
-                    return new Card(new Range(9,3), 90);
+                    return new Card(new HousieData());
                 default:
-                    return new Card(new Range(5, 5), 75);
+                    return new Card(new BingoData());
 
             }
         }

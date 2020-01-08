@@ -1,0 +1,6 @@
+C:\Users\marcela.llanos\source\repos\BingoGame\BingoGame\bin\Release\BingoGame.exe.config
+C:\Users\marcela.llanos\source\repos\BingoGame\BingoGame\bin\Release\BingoGame.exe
+C:\Users\marcela.llanos\source\repos\BingoGame\BingoGame\bin\Release\BingoGame.pdb
+C:\Users\marcela.llanos\source\repos\BingoGame\BingoGame\obj\Release\BingoGame.csproj.CoreCompileInputs.cache
+C:\Users\marcela.llanos\source\repos\BingoGame\BingoGame\obj\Release\BingoGame.exe
+C:\Users\marcela.llanos\source\repos\BingoGame\BingoGame\obj\Release\BingoGame.pdb

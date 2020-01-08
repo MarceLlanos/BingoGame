@@ -8,6 +8,6 @@ namespace BingoGame
 {
     interface IRandomGenerator
     {
-        List<int> GenerateRandomUniqueNumbers(IRange range, int quantity);
+        List<int> GenerateDistinctRandomNumbers(IRange range, int quantity);
     }
 }

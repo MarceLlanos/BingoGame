@@ -8,59 +8,48 @@ namespace BingoGame
 {
     class Card : ICard
     {
-        IRange range;
-        int balls;
+        ICardData data;
         string[,] card;
+        ICardDrawer drawer;
 
-        public Card(IRange range, int balls)
+        public Card(ICardData data)
         {
-            this.range = range;
-            this.balls = balls;
-            card = new string[range.GetStart(), range.GetEnd()];
+            this.data = data;
+            card = new string[data.GetColumn(), data.GetRow()];
+            drawer = new CardDrawer(this);
         }
 
-        public int GetQuantityBalls()
+        public ICardData GetCardData()
         {
-            return balls;
+            return data;
         }
 
-        public void SetQuantityBalls(int balls)
+        public string[,] GetCard()
         {
-            this.balls = balls;
+            return card;
         }
 
-        public void DrawCard(List<int> numbers, int column)
-        {
-            var row = range.GetEnd();
 
-            for (int j = 0; j < row; j++)
+        public void SetCard(string[,] card)
+        {
+            this.card = card;
+        }
+
+        public string[,] Draw(List<int> randomNumbers, int columnIndex)
+        {
+            return drawer.DrawCard(randomNumbers, columnIndex);
+        }
+
+        public string PrintRow(int rowIndex)
+        {
+            string row = string.Empty;
+
+            for (int i = 0; i < data.GetColumn(); i++)
             {
-                card[column,j] = string.Format("{0}",numbers[j]);
+                row += card[i, rowIndex] + " ";
             }
 
-        }
-
-        public void BlankSpaces(List<int> rowBlankSpaces)
-        {
-            for (int i = 0; i < range.GetStart(); i++)
-            {
-                for (int j = 0; j < range.GetEnd(); j++)
-                {
-                    if (rowBlankSpaces.Contains(i))
-                    {
-                        card[range.GetStart(), j] = " ";
-                    }
-                }
-            }
-        }
-        public void showCard()
-        {
-            Console.WriteLine(card);
-        }
-
-        public IRange GetRange()
-        {
-            return range;
+            return row;
         }
     }
 }

@@ -8,25 +8,25 @@ namespace BingoGame
 {
     class Orchestrator : IOrchestrator
     {
-        ICard card;
         IRandomGenerator randomGenerator;
+        IConfigurationCard configurationCard;
 
-        public Orchestrator(ICard card, IRandomGenerator randomGenerator)
+        public Orchestrator(IConfigurationCard configurationCard, IRandomGenerator randomGenerator)
         {
-            this.card = card;
+            this.configurationCard = configurationCard;
             this.randomGenerator = randomGenerator;
         }
 
-        public ICard Orchestrate(IConfigurationCard configurationCard)
+        public ICard Orchestrate(ICard card)
         {
-            var column = card.GetRange().GetStart();
+            var row = card.GetCardData().GetRow();
+            var column = card.GetCardData().GetColumn();
 
             for (int i = 0; i < column; i++)
             {
-                var numbers = randomGenerator.GenerateRandomUniqueNumbers(configurationCard.GetRangeForColumn(i), column);
+                var numbers = randomGenerator.GenerateDistinctRandomNumbers(configurationCard.GetRangeForColumn(i), row);
 
-                card.DrawCard(numbers, i);
-                numbers.Clear();
+                card.Draw(numbers, i);
             }
 
             return card;
