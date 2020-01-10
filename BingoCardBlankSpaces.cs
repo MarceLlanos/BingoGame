@@ -8,11 +8,17 @@ namespace BingoGame
 {
     class BingoCardBlankSpaces : IBlankSpacesFactory
     {
+        IGameDataSetting gameDataSetting;
+
+        public BingoCardBlankSpaces(IGameDataSetting gameDataSetting)
+        {
+            this.gameDataSetting = gameDataSetting;
+        }
 
         public ICard InjectBlankSpaces(IBlankSpaceInjector blankSpaces, ICard card)
         {
 
-            return blankSpaces.InjectBlankSpace(card);
+            return blankSpaces.InjectBlankSpace(card, gameDataSetting);
             
         }
     }

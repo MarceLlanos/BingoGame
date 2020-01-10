@@ -11,7 +11,6 @@ namespace BingoGame
         static void Main(string[] args)
         {
             var gameDataSetting = new GameSettingFactory();
-            var packOfCards = new CardPackage();
 
             Console.WriteLine("Choose the type of the game");
             Console.WriteLine("1 = 75 ball bingo Game.");
@@ -25,7 +24,9 @@ namespace BingoGame
 
             var gameSetting = gameDataSetting.CreateGameSetting(int.Parse(optionGame), int.Parse(quantityOfCards), 0);
 
-            packOfCards.DeckOfCards(gameSetting);
+            var packOfCards = new CardPackage(gameSetting);
+
+            packOfCards.DeckOfCards();
 
             Console.WriteLine(" ");
 

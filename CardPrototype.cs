@@ -10,21 +10,23 @@ namespace BingoGame
     {
         IRandomNumbersGenerator randomNumbersGenerator;
         IColumnRangeGetter columnRangeGetter;
+        IGameDataSetting gameDataSetting;
 
-        public CardPrototype(IColumnRangeGetter columnRangeGetter)
+        public CardPrototype(IColumnRangeGetter columnRangeGetter, IGameDataSetting gameDataSetting)
         {
+            this.gameDataSetting = gameDataSetting;
             this.columnRangeGetter = columnRangeGetter;
             randomNumbersGenerator = new RandomNumbersGenerator();
         }
 
         public ICard CreateCardPrototype(ICard card)
         {
-            var row = card.GetCardData().GetRowNumber();
-            var column = card.GetCardData().GetColumnNumber();
+            var rowNumber = gameDataSetting.GetCardData().GetRowNumber();
+            var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();
 
-            for (int i = 0; i < column; i++)
+            for (int i = 0; i < columnNumber; i++)
             {
-                var numbers = randomNumbersGenerator.GenerateDistinctRandomNumbers(columnRangeGetter.GetRangeForColumn(i), row);
+                var numbers = randomNumbersGenerator.GenerateDistinctRandomNumbers(columnRangeGetter.GetRangeForColumn(i), rowNumber);
 
                 card.Draw(numbers, i);
             }

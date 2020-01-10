@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    interface IBlankSpacesFactory
+    public interface IBlankSpacesFactory
     {
         ICard InjectBlankSpaces(IBlankSpaceInjector blankSpaces, ICard card);
     }

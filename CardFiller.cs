@@ -14,14 +14,14 @@ namespace BingoGame
             this.card = card;
         }
 
-        public string[,] FillCard(List<int> randomNumbers, int column)
+        public string[,] FillCard(List<int> randomNumbers, int columnIndex)
         {
-            var row = card.GetCardData().GetRowNumber();
+            var row = randomNumbers.Count;
             var cardBoard = card.GetCard();
 
             for (int j = 0; j < row; j++)
             {
-                cardBoard[column, j] = string.Format("{0}", randomNumbers[j]);
+                cardBoard[columnIndex, j] = string.Format("{0}", randomNumbers[j]);
             }
 
             return cardBoard;

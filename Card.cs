@@ -8,20 +8,13 @@ namespace BingoGame
 {
     class Card : ICard
     {
-        ICardData data;
         string[,] card;
         ICardFiller drawer;
 
-        public Card(ICardData data)
+        public Card(string[,] card)
         {
-            this.data = data;
-            card = new string[data.GetColumnNumber(), data.GetRowNumber()];
+            this.card = card;
             drawer = new CardFiller(this);
-        }
-
-        public ICardData GetCardData()
-        {
-            return data;
         }
 
         public string[,] GetCard()
@@ -40,11 +33,11 @@ namespace BingoGame
             return drawer.FillCard(randomNumbers, columnIndex);
         }
 
-        public string PrintRow(int rowIndex)
+        public string PrintRow(int rowIndex, int columnNumber)
         {
             string row = string.Empty;
 
-            for (int i = 0; i < data.GetColumnNumber(); i++)
+            for (int i = 0; i < columnNumber; i++)
             {
                 row += card[i, rowIndex] + " ";
             }

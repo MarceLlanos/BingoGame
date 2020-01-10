@@ -17,9 +17,10 @@ namespace BingoGame
             {
                 case 5: return new RangeDictionary(bingoRangeDictionary);
                 case 9: return new RangeDictionary(housieRangeDictionary);
+                default:
+                    return new RangeDictionary(bingoRangeDictionary);
             }
 
-            return new RangeDictionary(bingoRangeDictionary);
         }
     }
 }
