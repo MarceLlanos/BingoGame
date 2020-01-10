@@ -26,21 +26,13 @@ namespace BingoGame
             var cardData = gameDataSetting.GetCardData();
             var card = new CardFactory().CreateCard(gameDataSetting);
             var bingoCardPrototype = cardPrototype.CreateCardPrototype(card);
-            IBlankSpaceInjector blankSpaces = CreateBlanckSpaces(columnNumber);
 
-            return new BingoCardBlankSpaces(gameDataSetting).InjectBlankSpaces(blankSpaces, bingoCardPrototype);
+            var blankSpaces = new BlankSpaceInjectorFactory().CreateBlankSpacesInjector(columnNumber);
+            
+            return blankSpaces.InjectBlankSpace(bingoCardPrototype, gameDataSetting);
         }
 
-        private IBlankSpaceInjector CreateBlanckSpaces(int column)
-        {
-            switch (column)
-            {
-                case 5: return new MiddleBlankSpaceInjector();
-                case 9: return new RandomBlankSpacesInjector();
-            }
-
-            return new MiddleBlankSpaceInjector();
-        }
+        
 
         
     }

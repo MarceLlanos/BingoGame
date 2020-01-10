@@ -8,23 +8,27 @@ namespace BingoGame
 {
     class RandomBlankSpacesInjector : IBlankSpaceInjector
     {
+        IRandomNumbersGenerator generator;
+
+        public RandomBlankSpacesInjector()
+        {
+            generator = new RandomNumbersGenerator();
+        }
+
         public ICard InjectBlankSpace(ICard card, IGameDataSetting gameDataSetting)
         {
-            var rowNumber = gameDataSetting.GetCardData().GetRowNumber() - 1;
+            var rowNumber = gameDataSetting.GetCardData().GetRowNumber();
             var cardBoard = card.GetCard();
-            var cardData = gameDataSetting.GetCardData();
-            var positioner = new RandomPositionsGetter(cardData);
+            var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();
 
-            while (rowNumber >= 0)
+            for (int i = 0; i < rowNumber; i++)
             {
-                var columnPosition = positioner.GetRandomPositions(4);
+                var columnPositions = generator.GenerateDistinctRandomNumbers(new Range(1, columnNumber), 4);
 
-                for (int j = 0; j < columnPosition.Count; j++)
+                for (int j = 0; j < 4; j++)
                 {
-                    cardBoard[columnPosition[j], rowNumber] = " * ";
+                    cardBoard[columnPositions[j], i] = " * ";
                 }
-
-                rowNumber -= 1;
             }
 
             return card;

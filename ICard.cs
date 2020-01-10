@@ -9,9 +9,7 @@ namespace BingoGame
     public interface ICard
     {
         string[,] GetCard();
-        string[,] Draw(List<int>randomNumbers, int columnIndex);
         void SetCard(string[,] card);
-        //void BlankSpaces(List<int> rowBlankSpaces);
         string PrintRow(int rowIndex, int columnNumber);
     }
 }

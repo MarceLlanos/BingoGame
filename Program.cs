@@ -17,7 +17,6 @@ namespace BingoGame
             Console.WriteLine("2 = 90 ball bingo Game or Housie/Bingo Game");
             string optionGame = Console.ReadLine();
 
-
             Console.WriteLine("");
             Console.WriteLine("How many cards do you want?");
             string quantityOfCards = Console.ReadLine();
@@ -26,7 +25,7 @@ namespace BingoGame
 
             var packOfCards = new CardPackage(gameSetting);
 
-            packOfCards.DeckOfCards();
+            packOfCards.DrewDeckOfCards();
 
             Console.WriteLine(" ");
 

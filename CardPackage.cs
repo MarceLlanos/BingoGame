@@ -17,7 +17,7 @@ namespace BingoGame
             cards = new List<ICard>();
         }
 
-        public List<ICard> DeckOfCards()
+        public List<ICard> DrewDeckOfCards()
         {
             var cardFactory = new CardPrototypeFactory(gameDataSetting);
             var quantityOfCards = gameDataSetting.GetGameData().GetQuantityOfCards();

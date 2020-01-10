@@ -23,12 +23,12 @@ namespace BingoGame
         {
             var rowNumber = gameDataSetting.GetCardData().GetRowNumber();
             var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();
-
+            var fillerCard = new CardFiller(card);
+            
             for (int i = 0; i < columnNumber; i++)
             {
                 var numbers = randomNumbersGenerator.GenerateDistinctRandomNumbers(columnRangeGetter.GetRangeForColumn(i), rowNumber);
-
-                card.Draw(numbers, i);
+                fillerCard.FillCard(numbers, i);
             }
 
             return card;

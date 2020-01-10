@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IRandomPositioner
+    public interface IBlankSpaceInjectorFactory
     {
-        List<int> GetRandomPositions(int quantity);
+        IBlankSpaceInjector CreateBlankSpacesInjector(int quantityOfBlankSpaces);
     }
 }

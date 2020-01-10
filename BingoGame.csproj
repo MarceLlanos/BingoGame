@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BingoCardBlankSpaces.cs" />
+    <Compile Include="BlankSpaceInjectorFactory.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CardData.cs" />
     <Compile Include="CardDataFactory.cs" />
@@ -65,7 +65,7 @@
     <Compile Include="CardPackage.cs" />
     <Compile Include="HousieRangeDictionaryFiller.cs" />
     <Compile Include="IBlankSpaceInjector.cs" />
-    <Compile Include="IBlankSpacesFactory.cs" />
+    <Compile Include="IBlankSpaceInjectorFactory.cs" />
     <Compile Include="ICardData.cs" />
     <Compile Include="ICardFiller.cs" />
     <Compile Include="ICardPrototypeFactory.cs" />
@@ -76,8 +76,6 @@
     <Compile Include="IVerifierRepetedCards.cs" />
     <Compile Include="MiddleBlankSpaceInjector.cs" />
     <Compile Include="CardPrototype.cs" />
-    <Compile Include="IRandomPositioner.cs" />
-    <Compile Include="RandomPositionsGetter.cs" />
     <Compile Include="Range.cs" />
     <Compile Include="IColumnRangeGetter.cs" />
     <Compile Include="IRangeDictionary.cs" />
