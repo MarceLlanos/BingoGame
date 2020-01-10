@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class CardFiller : ICardFiller
+    class CardSpacesFiller : ICardFiller
     {
         ICard card;
-        public CardFiller(ICard card)
+
+        public CardSpacesFiller(ICard card)
         {
             this.card = card;
         }
 
-        public string[,] FillCard(List<int> randomNumbers, int columnIndex)
+        public string[,] FillCard(List<int> randomNumbers, int rowIndex)
         {
-            var rowNumber = randomNumbers.Count;
+            var columnsNumber = randomNumbers.Count;
             var cardBoard = card.GetCard();
 
-            for (int j = 0; j < rowNumber; j++)
+            for (int i = 0; i < columnsNumber; i++)
             {
-                cardBoard[columnIndex, j] = string.Format("{0}", randomNumbers[j]);
+                cardBoard[randomNumbers[i], rowIndex] = " * ";
             }
 
             return cardBoard;
         }
-
     }
 }

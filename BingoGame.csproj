@@ -48,6 +48,7 @@
     <Compile Include="CardData.cs" />
     <Compile Include="CardDataFactory.cs" />
     <Compile Include="CardFactory.cs" />
+    <Compile Include="CardSpacesFiller.cs" />
     <Compile Include="GameData.cs" />
     <Compile Include="GameDataFactory.cs" />
     <Compile Include="GameDataSetting.cs" />

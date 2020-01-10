@@ -11,12 +11,14 @@ namespace BingoGame
         public bool HasRepeatedCards(List<ICard> cards)
         {
             bool result = false;
+            int index = 1;
 
             foreach (var item in cards)
             {
-                result = cards.Contains(item);
+                result = item.Equals(cards[index]);
+                index += 1;
             }
-
+            
             return result;
         }
     }

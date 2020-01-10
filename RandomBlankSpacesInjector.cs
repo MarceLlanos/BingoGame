@@ -18,20 +18,17 @@ namespace BingoGame
         public ICard InjectBlankSpace(ICard card, IGameDataSetting gameDataSetting)
         {
             var rowNumber = gameDataSetting.GetCardData().GetRowNumber();
-            var cardBoard = card.GetCard();
             var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();
+            var spacesInjector = new CardSpacesFiller(card);
 
             for (int i = 0; i < rowNumber; i++)
             {
                 var columnPositions = generator.GenerateDistinctRandomNumbers(new Range(1, columnNumber), 4);
-
-                for (int j = 0; j < 4; j++)
-                {
-                    cardBoard[columnPositions[j], i] = " * ";
-                }
+                spacesInjector.FillCard(columnPositions, i);
             }
 
             return card;
         }
+
     }
 }
