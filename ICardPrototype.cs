@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IRandomPositioner
+    public interface ICardPrototype
     {
-        List<int> GetRandomPositions(int quantity);
+        ICard CreateCardPrototype(ICard card);
     }
 }

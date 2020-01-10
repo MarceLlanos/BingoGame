@@ -10,13 +10,13 @@ namespace BingoGame
     {
         ICardData data;
         string[,] card;
-        ICardDrawer drawer;
+        ICardFiller drawer;
 
         public Card(ICardData data)
         {
             this.data = data;
-            card = new string[data.GetColumn(), data.GetRow()];
-            drawer = new CardDrawer(this);
+            card = new string[data.GetColumnNumber(), data.GetRowNumber()];
+            drawer = new CardFiller(this);
         }
 
         public ICardData GetCardData()
@@ -37,14 +37,14 @@ namespace BingoGame
 
         public string[,] Draw(List<int> randomNumbers, int columnIndex)
         {
-            return drawer.DrawCard(randomNumbers, columnIndex);
+            return drawer.FillCard(randomNumbers, columnIndex);
         }
 
         public string PrintRow(int rowIndex)
         {
             string row = string.Empty;
 
-            for (int i = 0; i < data.GetColumn(); i++)
+            for (int i = 0; i < data.GetColumnNumber(); i++)
             {
                 row += card[i, rowIndex] + " ";
             }

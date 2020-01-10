@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IRandomPositioner
+    public interface IColumnRangeGetter
     {
-        List<int> GetRandomPositions(int quantity);
+        IRange GetRangeForColumn(int column);
     }
 }

@@ -8,6 +8,6 @@ namespace BingoGame
 {
     public interface ICardFactory
     {
-        ICard CreateCard(ICard card);
+        ICard CreateCard();
     }
 }

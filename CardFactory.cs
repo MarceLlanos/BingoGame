@@ -8,43 +8,39 @@ namespace BingoGame
 {
     class CardFactory : ICardFactory
     {
-        IOrchestrator orchestrator;
+        ICardPrototype cardPrototype;
+        int columnNumber;
+        IGameDataSetting gameDataSetting;
 
-        public CardFactory()
+        public CardFactory(int columnNumber, IGameDataSetting gameDataSetting)
         {
-            orchestrator = new Orchestrator(new ConfigurationCard(new BingoDictionary()), new RandomGenerator());
+            this.gameDataSetting = gameDataSetting;
+            this.columnNumber = columnNumber;
+            var dictionary = new RangeDictionaryFactory().CreateRangeDictionary(columnNumber);
+            cardPrototype = new CardPrototype(new ColumnRangeGetter(dictionary));
 
         }
-        public ICard CreateCard(ICard prototype)
-        {
-            var column = prototype.GetCardData().GetColumn();
-            ICardData cardData = CreateCardData(column);
-            var card = orchestrator.Orchestrate(new Card(cardData));
-            IBlankSpaces blankSpaces = CreateBlanckSpaces(column);
 
-            return new BingoCardBlankSpaces().DrawBlankSpaces(blankSpaces, card);
+        public ICard CreateCard()
+        {
+            var cardData = gameDataSetting.GetCardData();
+            var card = cardPrototype.CreateCardPrototype(new Card(cardData));
+            IBlankSpaceInjector blankSpaces = CreateBlanckSpaces(columnNumber);
+
+            return new BingoCardBlankSpaces().InjectBlankSpaces(blankSpaces, card);
         }
 
-        private IBlankSpaces CreateBlanckSpaces(int column)
-        {
-            switch (column)
-            {
-                case 5: return new MiddleBingoDrawerBlankSpaces();
-                case 9: return new HousieDrawerBlankSpaces();
-            }
-
-            return new MiddleBingoDrawerBlankSpaces();
-        }
-
-        private ICardData CreateCardData(int column)
+        private IBlankSpaceInjector CreateBlanckSpaces(int column)
         {
             switch (column)
             {
-                case 5: return new BingoData();
-                case 9: return new HousieData();
+                case 5: return new MiddleBlankSpaceInjector();
+                case 9: return new RandomBlankSpacesInjector();
             }
 
-            return new BingoData();
+            return new MiddleBlankSpaceInjector();
         }
+
+        
     }
 }

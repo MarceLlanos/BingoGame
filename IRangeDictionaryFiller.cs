@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IRandomPositioner
+    public interface IRangeDictionaryFiller
     {
-        List<int> GetRandomPositions(int quantity);
+        IDictionary<int, IRange> FillRangeDictionary();
     }
 }

@@ -10,29 +10,31 @@ namespace BingoGame
     {
         static void Main(string[] args)
         {
-            var cardInfomation = new CardDataMenu();
-            var deckOfCards = new CardShuffler();
+            var gameDataSetting = new GameSettingFactory();
+            var packOfCards = new CardPackage();
 
             Console.WriteLine("Choose the type of the game");
             Console.WriteLine("1 = 75 ball bingo Game.");
             Console.WriteLine("2 = 90 ball bingo Game or Housie/Bingo Game");
             string optionGame = Console.ReadLine();
-            var card= cardInfomation.GetCardData(optionGame);
 
-            Console.WriteLine("");
-            Console.WriteLine("Choose mode to win the game.");
-            Console.WriteLine("1= Win the game if someone shape one of the patterns shape.");
-            Console.WriteLine("2= Win the game if someone full the card.");
-            string optionWin = Console.ReadLine();
 
             Console.WriteLine("");
             Console.WriteLine("How many cards do you want?");
-            string optionQuantity = Console.ReadLine();
-            deckOfCards.DeckOfCards(int.Parse(optionQuantity), card);
+            string quantityOfCards = Console.ReadLine();
+
+            var gameSetting = gameDataSetting.CreateGameSetting(int.Parse(optionGame), int.Parse(quantityOfCards), 0);
+
+            packOfCards.DeckOfCards(gameSetting);
 
             Console.WriteLine(" ");
 
-            deckOfCards.ShowDeckOfCards();
+            packOfCards.ShowCards();
+
+            Console.WriteLine("How many balls do you want to drew?");
+            string quantityBalls = Console.ReadLine();
+
+
             Console.ReadKey();
         }
     }

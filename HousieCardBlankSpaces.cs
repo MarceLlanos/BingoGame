@@ -8,9 +8,9 @@ namespace BingoGame
 {
     class HousieCardBlankSpaces : IBlankSpacesFactory
     {
-        public ICard DrawBlankSpaces(IBlankSpaces blankSpaces, ICard card)
+        public ICard InjectBlankSpaces(IBlankSpaceInjector blankSpaces, ICard card)
         {
-            return blankSpaces.DrawBlankSpace(4, card);
+            return blankSpaces.InjectBlankSpace(card);
         }
     }
 }

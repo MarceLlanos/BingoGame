@@ -8,6 +8,6 @@ namespace BingoGame
 {
     interface IBlankSpacesFactory
     {
-        ICard DrawBlankSpaces(IBlankSpaces blankSpaces, ICard card);
+        ICard InjectBlankSpaces(IBlankSpaceInjector blankSpaces, ICard card);
     }
 }

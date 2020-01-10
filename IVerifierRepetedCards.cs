@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IRandomPositioner
+    public interface IVerifierRepetedCards
     {
-        List<int> GetRandomPositions(int quantity);
+        bool HasRepeatedCards(List<ICard> cards);
     }
 }

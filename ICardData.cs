@@ -8,11 +8,9 @@ namespace BingoGame
 {
     public interface ICardData
     {
-        int GetColumn();
-        int GetRow();
-        int GetQuantityBalls();
-        void SetColumn(int column);
-        void SetRow(int row);
-        void SetQuantityBalls(int quantity);
+        int GetColumnNumber();
+        int GetRowNumber();
+        void SetColumnNumber(int column);
+        void SetRowNumber(int row);
     }
 }
