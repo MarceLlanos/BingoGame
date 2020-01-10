@@ -29,11 +29,7 @@ namespace BingoGame
 
             var blankSpaces = new BlankSpaceInjectorFactory().CreateBlankSpacesInjector(columnNumber);
             
-            return blankSpaces.InjectBlankSpace(bingoCardPrototype, gameDataSetting);
+            return blankSpaces.InjectSpace(bingoCardPrototype, gameDataSetting);
         }
-
-        
-
-        
     }
 }

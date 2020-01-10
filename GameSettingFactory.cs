@@ -8,12 +8,12 @@ namespace BingoGame
 {
     class GameSettingFactory : IGameSettingFactory
     {
-        public IGameDataSetting CreateGameSetting(int option, int quantityOfCards, int optionToWin)
+        public IGameDataSetting CreateGameSetting(int optionNumber, int quantityOfCards, int optionToWin)
         {
-            var cardData = new CardDataFactory().CreateCardData(option);
-            var gameData = new GameDataFactory().CreateGameData(option, quantityOfCards);
+            var cardData = new CardDataFactory().CreateCardData(optionNumber);
+            var gameData = new GameDataFactory().CreateGameData(optionNumber, quantityOfCards);
 
-            switch (option)
+            switch (optionNumber)
             {
                 case 1: return new GameDataSetting(cardData, gameData, optionToWin);
                 case 2: return new GameDataSetting(cardData, gameData, optionToWin);

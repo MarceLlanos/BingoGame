@@ -8,12 +8,12 @@ namespace BingoGame
 {
     class BlankSpaceInjectorFactory : IBlankSpaceInjectorFactory
     {
-        public IBlankSpaceInjector CreateBlankSpacesInjector(int columnNumber)
+        public ISpaceInjector CreateBlankSpacesInjector(int columnNumber)
         {
             switch (columnNumber)
             {
                 case 5: return new MiddleBlankSpaceInjector();
-                case 9: return new RandomBlankSpacesInjector();
+                case 9: return new RandomSpacesInjector();
                 default:
                     return null;
             }

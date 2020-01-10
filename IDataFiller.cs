@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface ICardFiller
+    public interface IDataFiller
     {
-        string[,] FillCard(List<int> randomNumbers, int column);
+        string[,] FillData(List<int> randomNumbers, int column);
     }
 }

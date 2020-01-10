@@ -17,14 +17,14 @@ namespace BingoGame
             cards = new List<ICard>();
         }
 
-        public List<ICard> DrewDeckOfCards()
+        public List<ICard> DrawDeckOfCards()
         {
-            var cardFactory = new CardPrototypeFactory(gameDataSetting);
+            var cardPrototype = new CardPrototypeFactory(gameDataSetting);
             var quantityOfCards = gameDataSetting.GetGameData().GetQuantityOfCards();
 
             while (quantityOfCards > 0)
             {
-                cards.Add(cardFactory.CreateCardForPlay());
+                cards.Add(cardPrototype.CreateCardForPlay());
 
                 quantityOfCards -= 1;
             }

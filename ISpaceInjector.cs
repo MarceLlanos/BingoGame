@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IBlankSpaceInjector
+    public interface ISpaceInjector
     {
-        ICard InjectBlankSpace(ICard card, IGameDataSetting gameDataSetting);
+        ICard InjectSpace(ICard card, IGameDataSetting gameDataSetting);
     }
 }

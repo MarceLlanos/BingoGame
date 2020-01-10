@@ -8,33 +8,33 @@ namespace BingoGame
 {
     class Card : ICard
     {
-        string[,] card;
+        string[,] cardBoard;
 
-        public Card(string[,] card)
+        public Card(string[,] cardBoard)
         {
-            this.card = card;
+            this.cardBoard = cardBoard;
         }
 
-        public string[,] GetCard()
+        public string[,] GetCardBoard()
         {
-            return card;
+            return cardBoard;
         }
 
-        public void SetCard(string[,] card)
+        public void SetCardBoard(string[,] card)
         {
-            this.card = card;
+            this.cardBoard = card;
         }
 
         public string PrintRow(int rowIndex, int columnNumber)
         {
-            string row = string.Empty;
+            string rowPrinted = string.Empty;
 
             for (int i = 0; i < columnNumber; i++)
             {
-                row += card[i, rowIndex] + " ";
+                rowPrinted += cardBoard[i, rowIndex] + " ";
             }
 
-            return row;
+            return rowPrinted;
         }
     }
 }

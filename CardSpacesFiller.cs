@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class CardSpacesFiller : ICardFiller
+    class CardSpacesFiller : IDataFiller
     {
         ICard card;
 
@@ -15,10 +15,10 @@ namespace BingoGame
             this.card = card;
         }
 
-        public string[,] FillCard(List<int> randomNumbers, int rowIndex)
+        public string[,] FillData(List<int> randomNumbers, int rowIndex)
         {
             var columnsNumber = randomNumbers.Count;
-            var cardBoard = card.GetCard();
+            var cardBoard = card.GetCardBoard();
 
             for (int i = 0; i < columnsNumber; i++)
             {

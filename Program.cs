@@ -25,7 +25,7 @@ namespace BingoGame
 
             var packOfCards = new CardPackage(gameSetting);
 
-            packOfCards.DrewDeckOfCards();
+            packOfCards.DrawDeckOfCards();
 
             Console.WriteLine(" ");
 

@@ -8,6 +8,6 @@ namespace BingoGame
 {
     public interface IBlankSpaceInjectorFactory
     {
-        IBlankSpaceInjector CreateBlankSpacesInjector(int quantityOfBlankSpaces);
+        ISpaceInjector CreateBlankSpacesInjector(int quantityOfBlankSpaces);
     }
 }

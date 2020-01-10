@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class MiddleBlankSpaceInjector:IBlankSpaceInjector
+    class MiddleBlankSpaceInjector:ISpaceInjector
     {
 
-        public ICard InjectBlankSpace(ICard card, IGameDataSetting gameDataSetting)
+        public ICard InjectSpace(ICard card, IGameDataSetting gameDataSetting)
         {
             var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();
             var rowNumber = gameDataSetting.GetCardData().GetRowNumber();
 
-            decimal columnDivition = columnNumber / 2;
-            decimal rowDivition = rowNumber / 2;
+            decimal columnDivision = columnNumber / 2;
+            decimal rowDivision = rowNumber / 2;
 
-            var middleColumn = Math.Floor(columnDivition);
-            var middleRow = Math.Floor(rowDivition);
-            var cardBoard = card.GetCard();
+            var middleColumn = Math.Floor(columnDivision);
+            var middleRow = Math.Floor(rowDivision);
+            var cardBoard = card.GetCardBoard();
 
             cardBoard[decimal.ToInt32(middleColumn), decimal.ToInt32(middleRow)] = " * ";
 

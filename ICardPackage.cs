@@ -4,7 +4,7 @@ namespace BingoGame
 {
     public interface ICardPackage
     {
-        List<ICard> DrewDeckOfCards();
+        List<ICard> DrawDeckOfCards();
         void ShowCards();
     }
 }
