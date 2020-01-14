@@ -19,7 +19,7 @@ namespace BingoGame
         {
             var rowNumber = gameDataSetting.GetCardData().GetRowNumber();
             var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();
-            var spacesInjector = new CardSpacesFiller(card);
+            var spacesInjector = new CardSpaceFiller(card);
 
             for (int i = 0; i < rowNumber; i++)
             {

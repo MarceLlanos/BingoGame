@@ -2,6 +2,6 @@
 {
     public interface IGameDataFactory
     {
-        IGameData CreateGameData(int optionNumber, int quantityOfBalls);
+        IGameData CreateGameData(int optionNumber, int quantityOfCards);
     }
 }

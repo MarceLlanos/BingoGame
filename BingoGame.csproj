@@ -43,22 +43,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ball.cs" />
+    <Compile Include="BallsGenerator.cs" />
+    <Compile Include="BallsGeneratorFactory.cs" />
     <Compile Include="BlankSpaceInjectorFactory.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CardData.cs" />
     <Compile Include="CardDataFactory.cs" />
     <Compile Include="CardFactory.cs" />
-    <Compile Include="CardSpacesFiller.cs" />
+    <Compile Include="CardSpaceFiller.cs" />
     <Compile Include="GameData.cs" />
     <Compile Include="GameDataFactory.cs" />
     <Compile Include="GameDataSetting.cs" />
     <Compile Include="GameSettingFactory.cs" />
+    <Compile Include="IBall.cs" />
+    <Compile Include="IBallsGenerator.cs" />
+    <Compile Include="IBallsGeneratorFactory.cs" />
     <Compile Include="ICardDataFactory.cs" />
     <Compile Include="ICardFactory.cs" />
     <Compile Include="IGameData.cs" />
     <Compile Include="IGameDataFactory.cs" />
     <Compile Include="IGameDataSetting.cs" />
     <Compile Include="IGameSettingFactory.cs" />
+    <Compile Include="IInvoker.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="Invoker.cs" />
+    <Compile Include="IRandomDrawBalls.cs" />
+    <Compile Include="IReciever.cs" />
+    <Compile Include="IServiceLocator.cs" />
+    <Compile Include="GameFormCommand.cs" />
+    <Compile Include="RandomDrawBalls.cs" />
     <Compile Include="RandomSpacesInjector.cs" />
     <Compile Include="DataFiller.cs" />
     <Compile Include="CardPrototypeFactory.cs" />
@@ -89,6 +103,8 @@
     <Compile Include="RangeDictionary.cs" />
     <Compile Include="BingoRangeDictionaryFiller.cs" />
     <Compile Include="RangeDictionaryFactory.cs" />
+    <Compile Include="Reciever.cs" />
+    <Compile Include="ServiceLocator.cs" />
     <Compile Include="VerifierRepeatedCards.cs" />
   </ItemGroup>
   <ItemGroup>

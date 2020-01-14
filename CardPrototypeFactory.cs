@@ -14,9 +14,11 @@ namespace BingoGame
         public CardPrototypeFactory(IGameDataSetting gameDataSetting)
         {
             this.gameDataSetting = gameDataSetting;
+
             var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();
-            var dictionary = new RangeDictionaryFactory().CreateRangeDictionary(columnNumber);
-            cardPrototype = new CardPrototype(new ColumnRangeGetter(dictionary), gameDataSetting);
+            var rangeDictionary = new RangeDictionaryFactory().CreateRangeDictionary(columnNumber);
+            
+            cardPrototype = new CardPrototype(new ColumnRangeGetter(rangeDictionary), gameDataSetting);
 
         }
 

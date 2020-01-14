@@ -8,10 +8,17 @@ namespace BingoGame
 {
     class RangeDictionaryFactory : IRangeDictionaryFactory
     {
+        ServiceLocator serviceLocator;
+
+        public RangeDictionaryFactory()
+        {
+            serviceLocator = new ServiceLocator();
+        }
+
         public IRangeDictionary CreateRangeDictionary(int columnNumber)
         {
-            var bingoRangeDictionary = new BingoRangeDictionaryFiller().FillRangeDictionary();
-            var housieRangeDictionary = new HousieRangeDictionaryFiller().FillRangeDictionary();
+            var bingoRangeDictionary = serviceLocator.GetService<IRangeDictionaryFiller>("bingoDictonary").FillRangeDictionary();
+            var housieRangeDictionary = serviceLocator.GetService<IRangeDictionaryFiller>("housieDictonary").FillRangeDictionary();
 
             switch (columnNumber)
             {

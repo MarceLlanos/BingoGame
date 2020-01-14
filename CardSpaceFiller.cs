@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class CardSpacesFiller : IDataFiller
+    class CardSpaceFiller : IDataFiller
     {
         ICard card;
 
-        public CardSpacesFiller(ICard card)
+        public CardSpaceFiller(ICard card)
         {
             this.card = card;
         }

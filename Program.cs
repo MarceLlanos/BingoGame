@@ -10,30 +10,20 @@ namespace BingoGame
     {
         static void Main(string[] args)
         {
-            var gameDataSetting = new GameSettingFactory();
+            var invoker = new Invoker();
+            var reciever = new Reciever();
+            invoker.SetGameMenuCommand(new GameFormCommand(reciever));
+            var optionGame = invoker.ShowGameOptionMenu();
+            var quantityOfCards = invoker.ShowCardOption();
 
-            Console.WriteLine("Choose the type of the game");
-            Console.WriteLine("1 = 75 ball bingo Game.");
-            Console.WriteLine("2 = 90 ball bingo Game or Housie/Bingo Game");
-            string optionGame = Console.ReadLine();
+            var serviceLocator = new ServiceLocator();
 
-            Console.WriteLine("");
-            Console.WriteLine("How many cards do you want?");
-            string quantityOfCards = Console.ReadLine();
-
+            IGameSettingFactory gameDataSetting = serviceLocator.GetService<IGameSettingFactory>("gameSettingFactory");
             var gameSetting = gameDataSetting.CreateGameSetting(int.Parse(optionGame), int.Parse(quantityOfCards), 0);
-
             var packOfCards = new CardPackage(gameSetting);
-
             packOfCards.DrawDeckOfCards();
-
             Console.WriteLine(" ");
-
             packOfCards.ShowCards();
-
-            Console.WriteLine("How many balls do you want to drew?");
-            string quantityBalls = Console.ReadLine();
-
 
             Console.ReadKey();
         }
