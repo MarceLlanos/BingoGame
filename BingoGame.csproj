@@ -44,23 +44,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ball.cs" />
-    <Compile Include="BallsGenerator.cs" />
-    <Compile Include="BallsGeneratorFactory.cs" />
+    <Compile Include="BallsMachine.cs" />
+    <Compile Include="BallsMachineFactory.cs" />
     <Compile Include="BlankSpaceInjectorFactory.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CardData.cs" />
     <Compile Include="CardDataFactory.cs" />
     <Compile Include="CardFactory.cs" />
     <Compile Include="CardSpaceFiller.cs" />
+    <Compile Include="ExtractorBallsMachine.cs" />
     <Compile Include="GameData.cs" />
     <Compile Include="GameDataFactory.cs" />
     <Compile Include="GameDataSetting.cs" />
     <Compile Include="GameSettingFactory.cs" />
     <Compile Include="IBall.cs" />
-    <Compile Include="IBallsGenerator.cs" />
-    <Compile Include="IBallsGeneratorFactory.cs" />
+    <Compile Include="IBallsMachine.cs" />
+    <Compile Include="IBallsMachineFactory.cs" />
     <Compile Include="ICardDataFactory.cs" />
     <Compile Include="ICardFactory.cs" />
+    <Compile Include="IExtractorBallsMachine.cs" />
     <Compile Include="IGameData.cs" />
     <Compile Include="IGameDataFactory.cs" />
     <Compile Include="IGameDataSetting.cs" />

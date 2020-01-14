@@ -6,22 +6,23 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class BallsGeneratorFactory : IBallsGeneratorFactory
+    class BallsMachineFactory : IBallsMachineFactory
     {
         ServiceLocator serviceLocator;
         IGameDataSetting gameDataSetting;
 
-        public BallsGeneratorFactory(IGameDataSetting gameDataSetting)
+        public BallsMachineFactory(IGameDataSetting gameDataSetting)
         {
             serviceLocator = new ServiceLocator();
             this.gameDataSetting = gameDataSetting;
         }
 
-        public IBallsGenerator CreateBallsGenerator()
+        public IBallsMachine CreateBingoBallsMachine()
         {
             var quantityOfBalls = gameDataSetting.GetGameData().GetQuantityOfBalls();
-            IBallsGenerator ballsGenerator = serviceLocator.GetService<IBallsGenerator>("ballsGenerator");
+            IBallsMachine ballsGenerator = serviceLocator.GetService<IBallsMachine>("ballsMachine");
             ballsGenerator.SetQuantityOfBallsToGenerate(quantityOfBalls);
+
             return ballsGenerator;
         }
     }

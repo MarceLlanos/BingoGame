@@ -16,9 +16,8 @@ namespace BingoGame
             var optionGame = invoker.ShowGameOptionMenu();
             var quantityOfCards = invoker.ShowCardOption();
 
-            var serviceLocator = new ServiceLocator();
+            IGameSettingFactory gameDataSetting = new GameSettingFactory();
 
-            IGameSettingFactory gameDataSetting = serviceLocator.GetService<IGameSettingFactory>("gameSettingFactory");
             var gameSetting = gameDataSetting.CreateGameSetting(int.Parse(optionGame), int.Parse(quantityOfCards), 0);
             var packOfCards = new CardPackage(gameSetting);
             packOfCards.DrawDeckOfCards();

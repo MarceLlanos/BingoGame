@@ -13,6 +13,7 @@ namespace BingoGame
             switch (optionNumber)
             {
                 case 1: return new CardData(5, 5);
+                    
                 case 2: return new CardData(9, 3);
             }
 

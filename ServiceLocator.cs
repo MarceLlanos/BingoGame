@@ -18,8 +18,7 @@ namespace BingoGame
 
         private void BuildServiceDictionary()
         {
-            serviceDictionary.Add("gameSettingFactory", new GameSettingFactory());
-            serviceDictionary.Add("ballsGenerator", new BallsGenerator(0));
+            serviceDictionary.Add("ballsMachine", new BallsMachine(0));
             serviceDictionary.Add("bingoDictonary", new BingoRangeDictionaryFiller());
             serviceDictionary.Add("housieDictonary", new HousieRangeDictionaryFiller());
             serviceDictionary.Add("randomNumbersGenerator", new RandomNumbersGenerator());

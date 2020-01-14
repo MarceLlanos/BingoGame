@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IBallsGenerator
+    interface IExtractorBallsMachine
     {
-        List<IBall> GenerateBalls();
-        void SetQuantityOfBallsToGenerate(int quantityOfBalls);
-
+        List<IBall> ExtractBallsFromMachine(int quantityOfExtraction);
     }
 }

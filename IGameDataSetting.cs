@@ -11,6 +11,8 @@ namespace BingoGame
         ICardData GetCardData();
         IGameData GetGameData();
         int OptionToWin();
+        void SetCardData(ICardData cardData);
+        void SetGameData(IGameData gameData);
         void SetOptionToWin(int optionToWin);
     }
 }

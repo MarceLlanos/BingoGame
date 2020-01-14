@@ -22,6 +22,16 @@ namespace BingoGame
             return numberBall;
         }
 
+        public void ShowBalls()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowNumber()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool WasTakenTheBall()
         {
             return takenBall;

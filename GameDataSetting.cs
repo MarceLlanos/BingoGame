@@ -12,7 +12,7 @@ namespace BingoGame
         IGameData gameData;
         int optionToWin;
 
-        public GameDataSetting(ICardData cardData, IGameData gameData, int optionToWin)
+        public GameDataSetting( ICardData cardData, IGameData gameData, int optionToWin)
         {
             this.cardData = cardData;
             this.gameData = gameData;
@@ -32,6 +32,16 @@ namespace BingoGame
         public int OptionToWin()
         {
             return optionToWin;
+        }
+
+        public void SetCardData(ICardData cardData)
+        {
+            this.cardData = cardData;
+        }
+
+        public void SetGameData(IGameData gameData)
+        {
+            this.gameData = gameData;
         }
 
         public void SetOptionToWin(int optionToWin)

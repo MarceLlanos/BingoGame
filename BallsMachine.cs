@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class BallsGenerator : IBallsGenerator
+    class BallsMachine : IBallsMachine
     {
         List<IBall> balls;
         int quantityOfBalls;
 
-        public BallsGenerator(int quantityOfBalls)
+        public BallsMachine(int quantityOfBalls)
         {
             this.quantityOfBalls = quantityOfBalls;
             balls = new List<IBall>();
         }
 
-        public List<IBall> GenerateBalls()
+        public List<IBall> MachineBalls()
         {
             int ballNumber = 0;
             IBall ball = null;
