@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface ICommand
+    public interface IBallMachineFactory
     {
-        string executeInputOption();
+        IBallMachine CreateBallMachine(ServiceLocator service);
     }
 }

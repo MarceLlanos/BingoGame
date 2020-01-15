@@ -8,15 +8,9 @@ namespace BingoGame
 {
     class GameSettingFactory : IGameSettingFactory
     {
-        ServiceLocator service;
-
-        public GameSettingFactory()
-        {
-            service = new ServiceLocator();
-        }
-
         public IGameDataSetting CreateGameSetting(int optionNumber, int quantityOfCards, int optionToWin)
         {
+            var service = new ServiceLocator();
             var cardData = new CardDataFactory().CreateCardData(optionNumber);
             var gameData = new GameDataFactory().CreateGameData(optionNumber, quantityOfCards);
 

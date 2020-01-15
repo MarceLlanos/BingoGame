@@ -6,27 +6,14 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class Reciever : IReciever
+    class GameInputForm : IInputForm
     {
-        ServiceLocator service;
-
-        public Reciever()
+        public string OptionInput()
         {
-            service = new ServiceLocator();
-        }
-
-        public string GameOptionFormComplete()
-        {
+            Console.WriteLine("");
             Console.WriteLine("Choose the type of the game");
             Console.WriteLine("1 = 75 ball bingo Game.");
             Console.WriteLine("2 = 90 ball bingo Game or Housie/Bingo Game");
-            return Console.ReadLine();
-        }
-
-        public string CardsOptionFormComplete()
-        {
-            Console.WriteLine("");
-            Console.WriteLine("How many cards do you want?");
             return Console.ReadLine();
         }
     }

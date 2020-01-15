@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IBallsMachine
+    public interface ICommandExecutor
     {
-        List<IBall> MachineBalls();
-        void SetQuantityOfBallsToGenerate(int quantityOfBalls);
-
+       ICommand GetCommandFromDictionary(string command);
     }
 }

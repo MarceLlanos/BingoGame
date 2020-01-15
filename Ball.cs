@@ -6,35 +6,37 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class Ball:IBall
+    class Ball : IBall
     {
         int numberBall;
-        bool takenBall;
+        bool extracted;
 
-        public Ball(int numberBall, bool takenBall)
+        public Ball(int numberBall, bool extracted)
         {
             this.numberBall = numberBall;
-            this.takenBall = takenBall;
+            this.extracted = extracted;
         }
 
-        public int GetNumberOfBall()
+        public int GetNumber()
         {
             return numberBall;
         }
 
-        public void ShowBalls()
+        public bool IsExtracted()
         {
-            throw new NotImplementedException();
+            return extracted;
         }
 
-        public void ShowNumber()
+        public void SetIsExtracted(bool extracted)
         {
-            throw new NotImplementedException();
+            this.extracted = extracted;
         }
 
-        public bool WasTakenTheBall()
+        public void ShowBall()
         {
-            return takenBall;
+            Console.WriteLine(" ");
+            Console.WriteLine("Number of the ball: {0}", numberBall);
+            Console.WriteLine(" ");
         }
     }
 }

@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class BallsMachine : IBallsMachine
+    class BallMachine : IBallMachine
     {
         List<IBall> balls;
         int quantityOfBalls;
 
-        public BallsMachine(int quantityOfBalls)
+        public BallMachine(int quantityOfBalls)
         {
             this.quantityOfBalls = quantityOfBalls;
             balls = new List<IBall>();
         }
 
-        public List<IBall> MachineBalls()
+        public List<IBall> BallMaker()
         {
             int ballNumber = 0;
             IBall ball = null;
@@ -32,9 +32,19 @@ namespace BingoGame
             return balls;
         }
 
-        public void SetQuantityOfBallsToGenerate(int quantityOfBalls)
+        public void SetQuantityBalls(int quantityOfBall)
         {
-            this.quantityOfBalls = quantityOfBalls;
+            this.quantityOfBalls = quantityOfBall;
+        }
+
+        public void ShowBallMachine()
+        {
+            foreach (var item in balls)
+            {
+                Console.WriteLine("");
+                item.ShowBall();
+                Console.WriteLine("");
+            }
         }
     }
 }

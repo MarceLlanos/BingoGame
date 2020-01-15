@@ -2,21 +2,16 @@
 {
     class GameFormCommand : ICommand
     {
-        IReciever reciever;
+        IInputForm reciever;
 
-        public GameFormCommand(IReciever reciever)
+        public GameFormCommand(IInputForm reciever)
         {
             this.reciever = reciever;
         }
 
-        public string executeGameOption()
+        public string executeInputOption()
         {
-            return this.reciever.GameOptionFormComplete();
-        }
-
-        public string executeCardOption()
-        {
-            return this.reciever.CardsOptionFormComplete();
+            return reciever.OptionInput();
         }
     }
 }

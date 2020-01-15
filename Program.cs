@@ -10,12 +10,14 @@ namespace BingoGame
     {
         static void Main(string[] args)
         {
-            var invoker = new Invoker();
-            var reciever = new Reciever();
-            invoker.SetGameMenuCommand(new GameFormCommand(reciever));
-            var optionGame = invoker.ShowGameOptionMenu();
-            var quantityOfCards = invoker.ShowCardOption();
+            ServiceLocator service = new ServiceLocator();
 
+            var inputMenu = service.GetService<IInvoker>("invoker");
+            inputMenu.SetCommandExecutor(new CommandExecutor());
+
+            var optionGame = inputMenu.ShowInputMenu("gameInput");
+            var quantityOfCards = inputMenu.ShowInputMenu("cardInput");
+            var helpStart = inputMenu.ShowInputMenu("helpStart");
             IGameSettingFactory gameDataSetting = new GameSettingFactory();
 
             var gameSetting = gameDataSetting.CreateGameSetting(int.Parse(optionGame), int.Parse(quantityOfCards), 0);

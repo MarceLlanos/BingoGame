@@ -8,9 +8,9 @@ namespace BingoGame
 {
     public interface IBall
     {
-        int GetNumberOfBall();
-        bool WasTakenTheBall();
-        void ShowBalls();
-        void ShowNumber();
+        int GetNumber();
+        bool IsExtracted();
+        void ShowBall();
+        void SetIsExtracted(bool extracted);
     }
 }

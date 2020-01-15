@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class ServiceLocator : IServiceLocator
+    public class ServiceLocator : IServiceLocator
     {
         IDictionary<object, object> serviceDictionary;
 
@@ -18,10 +18,19 @@ namespace BingoGame
 
         private void BuildServiceDictionary()
         {
-            serviceDictionary.Add("ballsMachine", new BallsMachine(0));
+            serviceDictionary.Add("gameDataSetting", new GameDataSetting(null, null, 0));
+            serviceDictionary.Add("gameSettingFactory", new GameSettingFactory());
+            serviceDictionary.Add("ballsMachine", new BallMachine(0));
             serviceDictionary.Add("bingoDictonary", new BingoRangeDictionaryFiller());
             serviceDictionary.Add("housieDictonary", new HousieRangeDictionaryFiller());
             serviceDictionary.Add("randomNumbersGenerator", new RandomNumbersGenerator());
+            serviceDictionary.Add("gameInput", new GameInputForm());
+            serviceDictionary.Add("cardInput", new CardInputForm());
+            serviceDictionary.Add("helpStartMenu", new HelpInputForm());
+            serviceDictionary.Add("ballExtractorInput", new BallExtractorInputForm());
+            serviceDictionary.Add("invoker", new FormMenu());
+            serviceDictionary.Add("commandExecutor", new CommandExecutor());
+            
         }
 
         public T GetService<T>(object key)

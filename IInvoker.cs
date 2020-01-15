@@ -9,7 +9,8 @@ namespace BingoGame
     public interface IInvoker
     {
         void SetGameMenuCommand(ICommand command);
-        string ShowGameOptionMenu();
-        string ShowCardOption();
+        void SetCommandExecutor(ICommandExecutor command);
+        string ShowInputOptionMenu();
+        string ShowInputMenu(string command);
     }
 }
