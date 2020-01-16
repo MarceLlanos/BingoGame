@@ -15,13 +15,14 @@ namespace BingoGame
             this.gameData = gameData;
         }
 
-        public IRandomExtractorBallsMachine CreateRandomExtractorBallsMachine( int quantityBallsToExtract)
+        public IRandomExtractorBallsMachine CreateRandomExtractorBallsMachine( ServiceLocator service, int quantityBallsToExtract)
         {
-            var service = new ServiceLocator();
             var ballMachine = new BallMachineFactory(gameData).CreateBallMachine(service);
             var unExtractedBalls = new UnExtractedBalls(ballMachine);
+            var extractorMachine = new RandomExtractorBallsMachine(unExtractedBalls);
+            extractorMachine.ExtractRandomBallsFromMachine(quantityBallsToExtract);
 
-            return new RandomExtractorBallsMachine(unExtractedBalls, quantityBallsToExtract);
+            return extractorMachine;
         }
     }
 }

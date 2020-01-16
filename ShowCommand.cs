@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class HelpCommand : ICommand<HelpAction>
+    class ShowCommand : ICommand<ICardPackage>
     {
-        public void ExecuteCommand(HelpAction bingoComponent)
+        public void ExecuteCommand(ICardPackage bingoComponent)
         {
-            bingoComponent.ShowAction();
+            bingoComponent.ShowCards();
         }
     }
 }

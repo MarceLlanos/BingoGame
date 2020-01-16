@@ -10,21 +10,18 @@ namespace BingoGame
     {
         static void Main(string[] args)
         {
-            ServiceLocator service = new ServiceLocator();
+            var service = new ServiceLocator();
+            var commandsDirectory = new CommandHelpExecutorFactory();
+            var gameMenu = service.GetService<CommandGameExecutorFactory>("executeGame");
+            gameMenu.CreateCommandExecutor().ExecuteCommand("Bingo", new GameSettingFactory());
 
-            var inputMenu = service.GetService<IInvoker>("invoker");
-            inputMenu.SetCommandExecutor(new CommandExecutor());
+            while (true)
+            {
+                Console.WriteLine("Enter a command");
+                var command = Console.ReadLine();
 
-            var optionGame = inputMenu.ShowInputMenu("gameInput");
-            var quantityOfCards = inputMenu.ShowInputMenu("cardInput");
-            var helpStart = inputMenu.ShowInputMenu("helpStart");
-            IGameSettingFactory gameDataSetting = new GameSettingFactory();
-
-            var gameSetting = gameDataSetting.CreateGameSetting(int.Parse(optionGame), int.Parse(quantityOfCards), 0);
-            var packOfCards = new CardPackage(gameSetting);
-            packOfCards.DrawDeckOfCards();
-            Console.WriteLine(" ");
-            packOfCards.ShowCards();
+                commandsDirectory.CreateCommandExecutor().ExecuteCommand(command, new HelpAction());
+            }
 
             Console.ReadKey();
         }

@@ -8,6 +8,6 @@ namespace BingoGame
 {
     public interface IRandomExtractorBallsMachineFactory
     {
-        IRandomExtractorBallsMachine CreateRandomExtractorBallsMachine(int quantityBallsToExtract);
+        IRandomExtractorBallsMachine CreateRandomExtractorBallsMachine(ServiceLocator service, int quantityBallsToExtract);
     }
 }

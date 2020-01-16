@@ -9,6 +9,7 @@ namespace BingoGame
     class UnExtractedBalls : IUnExtractedBalls
     {
         IBallMachine ballMachine;
+        List<IBall> unExtractedBalls;
 
         public UnExtractedBalls(IBallMachine ballMachine)
         {
@@ -17,7 +18,7 @@ namespace BingoGame
 
         public List<IBall> GetUnExtracteBalls()
         {
-            var balls = ballMachine.BallMaker();
+            var balls = ballMachine.GetBalls();
             var unExtractedBalls = new List<IBall>();
 
             foreach (var item in balls)
@@ -29,6 +30,18 @@ namespace BingoGame
             }
 
             return unExtractedBalls;
+        }
+
+        public void ShowUnExtractedBalls()
+        {
+            int index = 0;
+            foreach (var item in GetUnExtracteBalls())
+            {
+                index += 1;
+
+                Console.WriteLine("Balls {0}:", index);
+                item.ShowBall();
+            }
         }
     }
 }

@@ -47,8 +47,6 @@ namespace BingoGame
 
                 Console.WriteLine(" ");
             }
-
-            
         }
     }
 }

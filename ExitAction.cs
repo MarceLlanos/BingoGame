@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class HelpCommand : ICommand<HelpAction>
+    class ExitAction : IAction
     {
-        public void ExecuteCommand(HelpAction bingoComponent)
+        public void ShowAction()
         {
-            bingoComponent.ShowAction();
+            Console.WriteLine("Come Back Soon!");
+            Environment.Exit(0);
         }
     }
 }

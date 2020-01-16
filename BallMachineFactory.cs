@@ -17,10 +17,11 @@ namespace BingoGame
 
         public IBallMachine CreateBallMachine(ServiceLocator service)
         {
-            var ballMachine = service.GetService<IBallMachine>("ballMachine");
+            var ballMachine = service.GetService<IBallMachine>("ballsMachine");
             var quantityOfBalls = gameDataSetting.GetGameData().GetQuantityOfBalls();
 
-            ballMachine.SetQuantityBalls(quantityOfBalls);
+            ballMachine.BallMaker(quantityOfBalls);
+
             return ballMachine;
         }
     }

@@ -6,37 +6,30 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class CommandExecutor : ICommandExecutor
+    class CommandExecutor<T> : ICommandExecutor<T>
     {
-        IDictionary<string, ICommand> commandDictionary;
+        IDictionary<string, ICommand<T>> commands;
 
         public CommandExecutor()
         {
-            commandDictionary = new Dictionary<string, ICommand>();
-            this.AddToCommandDictionary();
+            commands = new Dictionary<string, ICommand<T>>();
         }
 
-        private void AddToCommandDictionary()
+        public void AddToDictionary(string commandName, ICommand<T> command)
         {
-            commandDictionary.Add("helpStart", new GameFormCommand(new HelpInputForm()));
-            commandDictionary.Add("gameInput", new GameFormCommand(new GameInputForm()));
-            commandDictionary.Add("cardInput", new GameFormCommand(new CardInputForm()));
-            commandDictionary.Add("TAKE OFF BALLS", new GameFormCommand(new BallExtractorInputForm()));
+            commands[commandName] = command;
         }
 
-        public ICommand GetCommandFromDictionary(string command)
+        public void ExecuteCommand(string commandName, T bingoObject)
         {
-            ICommand result = null;
-
-            foreach (KeyValuePair<string, ICommand> item in commandDictionary)
+            if (commands.ContainsKey(commandName))
             {
-                if (item.Key == command)
-                {
-                    return result = item.Value;
-                }
+                commands[commandName].ExecuteCommand(bingoObject);
             }
-
-            return result;
+            else
+            {
+                Console.WriteLine("Please introduce a valid command. Thanks!");
+            }
         }
     }
 }

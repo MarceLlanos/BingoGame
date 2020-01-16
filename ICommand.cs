@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface ICommand
+    public interface ICommand<T>
     {
-        string executeInputOption();
+        void ExecuteCommand(T bingoComponent);
     }
 }

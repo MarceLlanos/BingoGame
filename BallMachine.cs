@@ -9,15 +9,13 @@ namespace BingoGame
     class BallMachine : IBallMachine
     {
         List<IBall> balls;
-        int quantityOfBalls;
 
-        public BallMachine(int quantityOfBalls)
+        public BallMachine()
         {
-            this.quantityOfBalls = quantityOfBalls;
             balls = new List<IBall>();
         }
 
-        public List<IBall> BallMaker()
+        public void BallMaker(int quantityOfBalls)
         {
             int ballNumber = 0;
             IBall ball = null;
@@ -28,13 +26,11 @@ namespace BingoGame
                 ball = new Ball(ballNumber, false);
                 balls.Add(ball);
             }
-
-            return balls;
         }
 
-        public void SetQuantityBalls(int quantityOfBall)
+        public List<IBall> GetBalls()
         {
-            this.quantityOfBalls = quantityOfBall;
+            return balls;
         }
 
         public void ShowBallMachine()
@@ -43,7 +39,6 @@ namespace BingoGame
             {
                 Console.WriteLine("");
                 item.ShowBall();
-                Console.WriteLine("");
             }
         }
     }

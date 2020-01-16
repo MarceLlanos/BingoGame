@@ -9,7 +9,6 @@ namespace BingoGame
     class Card : ICard
     {
         string[,] cardBoard;
-        ICardData card;
 
         public Card(string[,] cardBoard)
         {

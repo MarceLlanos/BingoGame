@@ -8,6 +8,7 @@ namespace BingoGame
 {
     public interface IRandomExtractorBallsMachine
     {
-        List<IBall> ExtractRandomBallsFromMachine();
+        List<IBall> ExtractRandomBallsFromMachine(int quantityToExtraction);
+        void ShowExtractedBallsFromMachine();
     }
 }

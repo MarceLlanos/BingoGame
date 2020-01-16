@@ -34,8 +34,8 @@ namespace BingoGame
 
         public void ShowBall()
         {
-            Console.WriteLine(" ");
-            Console.WriteLine("Number of the ball: {0}", numberBall);
+            Console.WriteLine("Number: {0}", numberBall);
+            Console.WriteLine("State: {0}", extracted);
             Console.WriteLine(" ");
         }
     }

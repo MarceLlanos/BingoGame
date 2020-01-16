@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface ICommandExecutor
+    public interface ICommandExecutor<T>
     {
-       ICommand GetCommandFromDictionary(string command);
+        void AddToDictionary(string commandName, ICommand<T> command);
+        void ExecuteCommand(string commandName, T bingoComponent);
     }
 }
