@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IGameSettingFactory
+    public interface IGameConfigurationFactory
     {
-        IGameDataSetting CreateGameSetting(int option, int quantityOfCards, int optionToWin);
+        IGameConfiguration CreateGameSetting(ServiceLocator service);
     }
 }

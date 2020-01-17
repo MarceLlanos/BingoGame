@@ -55,6 +55,7 @@
     <Compile Include="CommandDropBallsExecutorFactory.cs" />
     <Compile Include="CommandExecutor.cs" />
     <Compile Include="CommandExitExecutorFactory.cs" />
+    <Compile Include="CommandGame.cs" />
     <Compile Include="CommandGameExecutorFactory.cs" />
     <Compile Include="CommandHelpExecutorFactory.cs" />
     <Compile Include="CommandPlayExecutorFactory.cs" />
@@ -67,9 +68,9 @@
     <Compile Include="ExtractorBallsMachine.cs" />
     <Compile Include="GameData.cs" />
     <Compile Include="GameDataFactory.cs" />
-    <Compile Include="GameDataSetting.cs" />
+    <Compile Include="GameConfiguration.cs" />
     <Compile Include="GameMenuCommand.cs" />
-    <Compile Include="GameSettingFactory.cs" />
+    <Compile Include="GameConfigurationFactory.cs" />
     <Compile Include="HelpAction.cs" />
     <Compile Include="IBall.cs" />
     <Compile Include="IBallMachine.cs" />
@@ -78,12 +79,13 @@
     <Compile Include="ICardFactory.cs" />
     <Compile Include="ICommandExecutor.cs" />
     <Compile Include="ICommandExecutorFactory.cs" />
+    <Compile Include="IUserInputConfiguration.cs" />
     <Compile Include="IExecutorActionCommand.cs" />
     <Compile Include="IExtractorBallsMachine.cs" />
     <Compile Include="IGameData.cs" />
     <Compile Include="IGameDataFactory.cs" />
-    <Compile Include="IGameDataSetting.cs" />
-    <Compile Include="IGameSettingFactory.cs" />
+    <Compile Include="IGameConfiguration.cs" />
+    <Compile Include="IGameConfigurationFactory.cs" />
     <Compile Include="IAction.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IRandomDrawBalls.cs" />
@@ -100,14 +102,14 @@
     <Compile Include="DataFiller.cs" />
     <Compile Include="CardPrototypeFactory.cs" />
     <Compile Include="ColumnRangeGetter.cs" />
-    <Compile Include="CardPackage.cs" />
+    <Compile Include="CardSet.cs" />
     <Compile Include="HousieRangeDictionaryFiller.cs" />
     <Compile Include="ISpaceInjector.cs" />
     <Compile Include="IBlankSpaceInjectorFactory.cs" />
     <Compile Include="ICardData.cs" />
     <Compile Include="IDataFiller.cs" />
     <Compile Include="ICardPrototypeFactory.cs" />
-    <Compile Include="ICardPackage.cs" />
+    <Compile Include="ICardSet.cs" />
     <Compile Include="ICardPrototype.cs" />
     <Compile Include="IRangeDictionaryFactory.cs" />
     <Compile Include="IRangeDictionaryFiller.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="ShowWinnerCommand.cs" />
     <Compile Include="TakeOffBallsCommand.cs" />
     <Compile Include="UnExtractedBalls.cs" />
+    <Compile Include="UserInputConfiguration.cs" />
     <Compile Include="VerifierRepeatedCards.cs" />
   </ItemGroup>
   <ItemGroup>

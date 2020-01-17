@@ -10,7 +10,7 @@ namespace BingoGame
     {
         public ICommandExecutor<HelpAction> CreateCommandExecutor()
         {
-            var helpExecute = new CommandExecutor<HelpAction>();
+            ICommandExecutor<HelpAction> helpExecute = new CommandExecutor<HelpAction>();
             helpExecute.AddToDictionary("HELP", new HelpCommand());
 
             return helpExecute;

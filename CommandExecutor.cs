@@ -20,16 +20,13 @@ namespace BingoGame
             commands[commandName] = command;
         }
 
-        public void ExecuteCommand(string commandName, T bingoObject)
+        public void ExecuteCommand(string commandName, T bingoComponent)
         {
             if (commands.ContainsKey(commandName))
             {
-                commands[commandName].ExecuteCommand(bingoObject);
+                commands[commandName].ExecuteCommand(bingoComponent);
             }
-            else
-            {
-                Console.WriteLine("Please introduce a valid command. Thanks!");
-            }
+
         }
     }
 }

@@ -8,7 +8,7 @@ namespace BingoGame
 {
     public interface ICommandExecutor<T>
     {
-        void AddToDictionary(string commandName, ICommand<T> command);
         void ExecuteCommand(string commandName, T bingoComponent);
+        void AddToDictionary(string commandName, ICommand<T> command);
     }
 }

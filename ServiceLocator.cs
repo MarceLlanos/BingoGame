@@ -18,14 +18,13 @@ namespace BingoGame
 
         private void BuildServiceDictionary()
         {
-            serviceDictionary.Add("gameDataSetting", new GameDataSetting(null, null, 0));
-            serviceDictionary.Add("gameSettingFactory", new GameSettingFactory());
+            serviceDictionary.Add("gameSettingFactory", new GameConfigurationFactory());
             serviceDictionary.Add("ballsMachine", new BallMachine());
             serviceDictionary.Add("bingoDictonary", new BingoRangeDictionaryFiller());
             serviceDictionary.Add("housieDictonary", new HousieRangeDictionaryFiller());
             serviceDictionary.Add("randomNumbersGenerator", new RandomNumbersGenerator());
+            serviceDictionary.Add("userConfiguration", new UserInputConfiguration());
             serviceDictionary.Add("gameInput", new GameMenuCommand());
-
             serviceDictionary.Add("executeGame", new CommandGameExecutorFactory());
             serviceDictionary.Add("executeHelp", new CommandHelpExecutorFactory());
             serviceDictionary.Add("executePlay", new CommandPlayExecutorFactory());

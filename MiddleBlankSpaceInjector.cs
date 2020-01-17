@@ -9,7 +9,7 @@ namespace BingoGame
     class MiddleBlankSpaceInjector:ISpaceInjector
     {
 
-        public ICard InjectSpace(ICard card, IGameDataSetting gameDataSetting)
+        public ICard InjectSpace(ICard card, IGameConfiguration gameDataSetting)
         {
             var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();
             var rowNumber = gameDataSetting.GetCardData().GetRowNumber();

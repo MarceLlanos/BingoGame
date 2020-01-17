@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IGameDataSetting
+    public interface IGameConfiguration
     {
         ICardData GetCardData();
         IGameData GetGameData();

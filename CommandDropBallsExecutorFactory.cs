@@ -11,6 +11,7 @@ namespace BingoGame
         public ICommandExecutor<IRandomExtractorBallsMachine> CreateCommandExecutor()
         {
             var dropBallsExecute = new CommandExecutor<IRandomExtractorBallsMachine>();
+            
             dropBallsExecute.AddToDictionary("SHOW TAKE OFF BALLS", new ShowDropBallsCommand());
 
             return dropBallsExecute;

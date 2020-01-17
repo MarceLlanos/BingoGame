@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class ShowCommand : ICommand<ICardPackage>
+    class ShowCommand : ICommand<ICardSet>
     {
-        public void ExecuteCommand(ICardPackage bingoComponent)
+        public void ExecuteCommand(ICardSet bingoComponent)
         {
             bingoComponent.ShowCards();
         }

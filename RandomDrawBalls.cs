@@ -9,9 +9,9 @@ namespace BingoGame
     class RandomDrawBalls : IRandomDrawBalls
     {
         IRandomNumbersGenerator randomNumbers;
-        IGameDataSetting gameDataSetting;
+        IGameConfiguration gameDataSetting;
 
-        public RandomDrawBalls(IGameDataSetting gameDataSetting)
+        public RandomDrawBalls(IGameConfiguration gameDataSetting)
         {
             this.gameDataSetting = gameDataSetting;
             randomNumbers = new RandomNumbersGenerator();

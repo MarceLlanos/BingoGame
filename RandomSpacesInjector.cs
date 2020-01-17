@@ -15,7 +15,7 @@ namespace BingoGame
             generator = new RandomNumbersGenerator();
         }
 
-        public ICard InjectSpace(ICard card, IGameDataSetting gameDataSetting)
+        public ICard InjectSpace(ICard card, IGameConfiguration gameDataSetting)
         {
             var rowNumber = gameDataSetting.GetCardData().GetRowNumber();
             var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();

@@ -8,18 +8,12 @@ namespace BingoGame
 {
     class BallMachineFactory : IBallMachineFactory
     {
-        IGameDataSetting gameDataSetting;
-
-        public BallMachineFactory(IGameDataSetting gameDataSetting)
-        {
-            this.gameDataSetting = gameDataSetting;
-        }
-
         public IBallMachine CreateBallMachine(ServiceLocator service)
         {
+            var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameSettingFactory");
             var ballMachine = service.GetService<IBallMachine>("ballsMachine");
-            var quantityOfBalls = gameDataSetting.GetGameData().GetQuantityOfBalls();
 
+            var quantityOfBalls = gameConfiguration.CreateGameSetting(service).GetGameData().GetQuantityOfBalls();
             ballMachine.BallMaker(quantityOfBalls);
 
             return ballMachine;

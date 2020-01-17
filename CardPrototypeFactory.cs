@@ -8,30 +8,23 @@ namespace BingoGame
 {
     class CardPrototypeFactory : ICardPrototypeFactory
     {
-        ICardPrototype cardPrototype;
-        IGameDataSetting gameDataSetting;
 
-        public CardPrototypeFactory(IGameDataSetting gameDataSetting)
+        public ICard CreateCardForPlay(ServiceLocator service)
         {
-            this.gameDataSetting = gameDataSetting;
-
-            var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();
+            var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameSettingFactory").CreateGameSetting(service);
+            var columnNumber = gameConfiguration.GetCardData().GetColumnNumber();
             var rangeDictionary = new RangeDictionaryFactory().CreateRangeDictionary(columnNumber);
-            
-            cardPrototype = new CardPrototype(new ColumnRangeGetter(rangeDictionary), gameDataSetting);
 
-        }
+            var cardPrototype = new CardPrototype(new ColumnRangeGetter(rangeDictionary), gameConfiguration);
 
-        public ICard CreateCardForPlay()
-        {
-            var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();
-            var cardData = gameDataSetting.GetCardData();
-            var card = new CardFactory().CreateCard(gameDataSetting);
+            var cardData = gameConfiguration.GetCardData();
+
+            var card = new CardFactory().CreateCard(service);
             var bingoCardPrototype = cardPrototype.CreateCardPrototype(card);
 
             var blankSpaces = new BlankSpaceInjectorFactory().CreateBlankSpacesInjector(columnNumber);
             
-            return blankSpaces.InjectSpace(bingoCardPrototype, gameDataSetting);
+            return blankSpaces.InjectSpace(bingoCardPrototype, gameConfiguration);
         }
     }
 }

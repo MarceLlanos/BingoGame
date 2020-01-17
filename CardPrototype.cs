@@ -10,9 +10,9 @@ namespace BingoGame
     {
         IRandomNumbersGenerator randomNumbersGenerator;
         IColumnRangeGetter columnRangeGetter;
-        IGameDataSetting gameDataSetting;
+        IGameConfiguration gameDataSetting;
 
-        public CardPrototype(IColumnRangeGetter columnRangeGetter, IGameDataSetting gameDataSetting)
+        public CardPrototype(IColumnRangeGetter columnRangeGetter, IGameConfiguration gameDataSetting)
         {
             this.gameDataSetting = gameDataSetting;
             this.columnRangeGetter = columnRangeGetter;

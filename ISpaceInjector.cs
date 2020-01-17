@@ -8,6 +8,6 @@ namespace BingoGame
 {
     public interface ISpaceInjector
     {
-        ICard InjectSpace(ICard card, IGameDataSetting gameDataSetting);
+        ICard InjectSpace(ICard card, IGameConfiguration gameDataSetting);
     }
 }

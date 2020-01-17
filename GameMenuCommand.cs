@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class GameMenuCommand : ICommand<IGameSettingFactory>
+    class GameMenuCommand : ICommand<IUserInputConfiguration>
     {
-        public void ExecuteCommand(IGameSettingFactory bingoComponent)
+        public void ExecuteCommand(IUserInputConfiguration userConfiguration)
         {
             Console.WriteLine("");
             Console.WriteLine(" Choose the type of the game");
@@ -20,7 +20,8 @@ namespace BingoGame
             Console.WriteLine(" How many cards do you want?");
             var quantityOfCards = Console.ReadLine();
 
-            bingoComponent.CreateGameSetting(int.Parse(typeOfGame), int.Parse(quantityOfCards), 0);
+            userConfiguration.SetOptionGame(int.Parse(typeOfGame));
+            userConfiguration.SetQuantityOfCards(int.Parse(quantityOfCards));
 
             Console.WriteLine("");
             Console.WriteLine("Bingo Game:");

@@ -8,16 +8,10 @@ namespace BingoGame
 {
     class RandomExtractorBallsMachineFactory : IRandomExtractorBallsMachineFactory
     {
-        IGameDataSetting gameData;
-
-        public RandomExtractorBallsMachineFactory(IGameDataSetting gameData)
-        {
-            this.gameData = gameData;
-        }
-
         public IRandomExtractorBallsMachine CreateRandomExtractorBallsMachine( ServiceLocator service, int quantityBallsToExtract)
         {
-            var ballMachine = new BallMachineFactory(gameData).CreateBallMachine(service);
+
+            var ballMachine = service.GetService<IBallMachine>("ballsMachine");
             var unExtractedBalls = new UnExtractedBalls(ballMachine);
             var extractorMachine = new RandomExtractorBallsMachine(unExtractedBalls);
             extractorMachine.ExtractRandomBallsFromMachine(quantityBallsToExtract);

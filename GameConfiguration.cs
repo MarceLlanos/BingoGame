@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class GameDataSetting : IGameDataSetting
+    class GameConfiguration : IGameConfiguration
     {
         ICardData cardData;
         IGameData gameData;
         int optionToWin;
 
-        public GameDataSetting( ICardData cardData, IGameData gameData, int optionToWin)
+        public GameConfiguration( ICardData cardData, IGameData gameData, int optionToWin)
         {
             this.cardData = cardData;
             this.gameData = gameData;

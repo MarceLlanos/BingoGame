@@ -6,26 +6,22 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class CardPackage : ICardPackage
+    class CardSet : ICardSet
     {
         List<ICard> cards;
-        IGameDataSetting gameDataSetting;
+        ServiceLocator service;
 
-        public CardPackage(IGameDataSetting gameDataSetting)
+        public CardSet()
         {
-            this.gameDataSetting = gameDataSetting;
+            service = new ServiceLocator();
             cards = new List<ICard>();
         }
 
-        public List<ICard> DrawDeckOfCards()
+        public List<ICard> DrawDeckOfCards(int quantityOfCards, ICardPrototypeFactory cardPrototype)
         {
-            var cardPrototype = new CardPrototypeFactory(gameDataSetting);
-            var quantityOfCards = gameDataSetting.GetGameData().GetQuantityOfCards();
-
             while (quantityOfCards > 0)
             {
-                cards.Add(cardPrototype.CreateCardForPlay());
-
+                cards.Add(cardPrototype.CreateCardForPlay(service));
                 quantityOfCards -= 1;
             }
 
@@ -34,8 +30,9 @@ namespace BingoGame
 
         public void ShowCards()
         {
-            var rowNumber = gameDataSetting.GetCardData().GetRowNumber();
-            var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();
+            var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameSettingFactory");
+            var rowNumber = gameConfiguration.CreateGameSetting(service).GetCardData().GetRowNumber();
+            var columnNumber = gameConfiguration.CreateGameSetting(service).GetCardData().GetColumnNumber();
 
             foreach (var item in cards)
             {

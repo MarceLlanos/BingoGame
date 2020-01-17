@@ -8,10 +8,11 @@ namespace BingoGame
 {
     class CardFactory : ICardFactory
     {
-        public ICard CreateCard(IGameDataSetting gameDataSetting)
+        public ICard CreateCard(ServiceLocator service)
         {
-            var columnNumbers = gameDataSetting.GetCardData().GetColumnNumber();
-            var rowNumbers = gameDataSetting.GetCardData().GetRowNumber();
+            var gameconfiguration = service.GetService<IGameConfigurationFactory>("gameConfiguration").CreateGameSetting(service);
+            var columnNumbers = gameconfiguration.GetCardData().GetColumnNumber();
+            var rowNumbers = gameconfiguration.GetCardData().GetRowNumber();
             var cardBoard = new string[columnNumbers, rowNumbers];
 
             return new Card(cardBoard);

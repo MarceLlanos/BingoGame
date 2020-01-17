@@ -17,6 +17,12 @@ namespace BingoGame
             this.rowNumbers = rowNumbers;
         }
 
+
+        public int[,] DataDimension(int column, int rowNumbers)
+        {
+            return new int[column, rowNumbers];
+        }
+
         public int GetColumnNumber()
         {
             return columnNumbers;
