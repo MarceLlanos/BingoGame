@@ -51,6 +51,7 @@
     <Compile Include="CardData.cs" />
     <Compile Include="CardDataFactory.cs" />
     <Compile Include="CardFactory.cs" />
+    <Compile Include="CardSetFactory.cs" />
     <Compile Include="CardSpaceFiller.cs" />
     <Compile Include="CommandDropBallsExecutorFactory.cs" />
     <Compile Include="CommandExecutor.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="IBallMachineFactory.cs" />
     <Compile Include="ICardDataFactory.cs" />
     <Compile Include="ICardFactory.cs" />
+    <Compile Include="ICardSetFactory.cs" />
     <Compile Include="ICommandExecutor.cs" />
     <Compile Include="ICommandExecutorFactory.cs" />
     <Compile Include="IUserInputConfiguration.cs" />
@@ -130,11 +132,10 @@
     <Compile Include="RangeDictionaryFactory.cs" />
     <Compile Include="ServiceLocator.cs" />
     <Compile Include="ShowBallsCommand.cs" />
-    <Compile Include="ShowCommand.cs" />
+    <Compile Include="ShowCardsCommand.cs" />
     <Compile Include="ShowDropBallsCommand.cs" />
     <Compile Include="ShowWinnerCommand.cs" />
     <Compile Include="TakeOffBallsCommand.cs" />
-    <Compile Include="UnExtractedBalls.cs" />
     <Compile Include="UserInputConfiguration.cs" />
     <Compile Include="VerifierRepeatedCards.cs" />
   </ItemGroup>

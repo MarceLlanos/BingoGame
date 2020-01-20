@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IRandomExtractorBallsMachine
+    public interface ICardSetFactory
     {
-        List<IBall> ExtractRandomBallsFromMachine(IBallMachine ballMachine, int quantityToExtraction);
+        ICardSet CreateCardSet(ServiceLocator service);
     }
 }

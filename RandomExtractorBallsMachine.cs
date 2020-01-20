@@ -9,25 +9,22 @@ namespace BingoGame
     class RandomExtractorBallsMachine : IRandomExtractorBallsMachine
     {
         IRandomNumbersGenerator randomNumbers;
-        IUnExtractedBalls unextractedBalls;
-        List<IBall> extractedBalls;
 
-        public RandomExtractorBallsMachine(IUnExtractedBalls unextractedBalls)
+        public RandomExtractorBallsMachine()
         {
-            this.unextractedBalls = unextractedBalls;
             randomNumbers = new RandomNumbersGenerator();
         }
 
-        public List<IBall> ExtractRandomBallsFromMachine(int quantityToExtraction)
+        public List<IBall> ExtractRandomBallsFromMachine(IBallMachine ballMachine, int quantityToExtraction)
         {
-            var balls = unextractedBalls.GetUnExtracteBalls();
+            var balls = ballMachine.GetUnExtractedBalls();
+            var result = new List<IBall>();
             var ballsQuantity = balls.Count;
             var range = new Range(0, ballsQuantity-1);
-            var extractedBalls = new List<IBall>();
 
             if (ballsQuantity <= quantityToExtraction)
             {
-                return extractedBalls = balls;
+                return result = balls;
             }
 
             var randomPositions = randomNumbers.GenerateDistinctRandomNumbers(range, quantityToExtraction);
@@ -36,18 +33,10 @@ namespace BingoGame
             {
                 var ball = balls[randomPositions[i]];
                 ball.SetIsExtracted(true);
-                extractedBalls.Add(ball);
+                result.Add(ball);
             }
 
-            return extractedBalls;
-        }
-
-        public void ShowExtractedBallsFromMachine()
-        {
-            foreach (var item in extractedBalls)
-            {
-                item.ShowBall();
-            }
+            return result;
         }
     }
 }

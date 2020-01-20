@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class CommandShowCardsExecutorFactory : ICommandExecutorFactory<ICardSet>
+    class CommandShowCardsExecutorFactory : ICommandExecutorFactory<ICardSetFactory>
     {
-        public ICommandExecutor<ICardSet> CreateCommandExecutor()
+        public ICommandExecutor<ICardSetFactory> CreateCommandExecutor()
         {
-            var showExecute = new CommandExecutor<ICardSet>();
-            showExecute.AddToDictionary("SHOW CARDS", new ShowCommand());
+            var showExecute = new CommandExecutor<ICardSetFactory>();
+            showExecute.AddToDictionary("SHOW CARDS", new ShowCardsCommand());
 
             return showExecute;
         }

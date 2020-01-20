@@ -10,11 +10,9 @@ namespace BingoGame
     {
         public IRandomExtractorBallsMachine CreateRandomExtractorBallsMachine( ServiceLocator service, int quantityBallsToExtract)
         {
-
-            var ballMachine = service.GetService<IBallMachine>("ballsMachine");
-            var unExtractedBalls = new UnExtractedBalls(ballMachine);
-            var extractorMachine = new RandomExtractorBallsMachine(unExtractedBalls);
-            extractorMachine.ExtractRandomBallsFromMachine(quantityBallsToExtract);
+            var ballMachine = service.GetService<IBallMachineFactory>("ballMachine").CreateBallMachine(service);
+            var extractorMachine = service.GetService<IRandomExtractorBallsMachine>("randomExtracted");
+            extractorMachine.ExtractRandomBallsFromMachine(ballMachine, quantityBallsToExtract);
 
             return extractorMachine;
         }

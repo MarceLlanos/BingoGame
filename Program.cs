@@ -12,9 +12,8 @@ namespace BingoGame
         {
             var service = new ServiceLocator();
             var commandGame = new CommandGame();
-            var gameMenu = service.GetService<CommandGameExecutorFactory>("executeGame");
+            new GameMenuCommand().GameInitCommand(service);
 
-            gameMenu.CreateCommandExecutor().ExecuteCommand("Bingo", new UserInputConfiguration());
             commandGame.GetCommand(service);
 
             Console.ReadKey();

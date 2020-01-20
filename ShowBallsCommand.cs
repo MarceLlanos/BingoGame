@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class ShowBallsCommand : ICommand<IBallMachine>
+    class ShowBallsCommand : ICommand<IBallMachineFactory>
     {
-        public void ExecuteCommand(IBallMachine bingoComponent)
+        ServiceLocator service;
+
+        public ShowBallsCommand()
         {
-            bingoComponent.ShowBallMachine();
+            service = new ServiceLocator();
+        }
+        public void ExecuteCommand(IBallMachineFactory bingoComponent)
+        {
+            bingoComponent.CreateBallMachine(service);
         }
     }
 }

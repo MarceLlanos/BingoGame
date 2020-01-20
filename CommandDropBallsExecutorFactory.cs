@@ -12,7 +12,7 @@ namespace BingoGame
         {
             var dropBallsExecute = new CommandExecutor<IRandomExtractorBallsMachine>();
             
-            dropBallsExecute.AddToDictionary("SHOW TAKE OFF BALLS", new ShowDropBallsCommand());
+            //dropBallsExecute.AddToDictionary("SHOW TAKE OFF BALLS", new ShowDropBallsCommand());
 
             return dropBallsExecute;
         }

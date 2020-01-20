@@ -9,13 +9,19 @@ namespace BingoGame
     class BallMachine : IBallMachine
     {
         List<IBall> balls;
+        List<IBall> extractedBalls;
+        List<IBall> unextractedBalls;
+        int quantityOfBalls;
 
-        public BallMachine()
+        public BallMachine(int quantityOfBalls)
         {
+            this.quantityOfBalls = quantityOfBalls;
             balls = new List<IBall>();
+            unextractedBalls = new List<IBall>();
+            extractedBalls = new List<IBall>();
         }
 
-        public void BallMaker(int quantityOfBalls)
+        public List<IBall> BallMaker()
         {
             int ballNumber = 0;
             IBall ball = null;
@@ -26,6 +32,8 @@ namespace BingoGame
                 ball = new Ball(ballNumber, false);
                 balls.Add(ball);
             }
+
+            return balls;
         }
 
         public List<IBall> GetBalls()
@@ -33,12 +41,58 @@ namespace BingoGame
             return balls;
         }
 
-        public void ShowBallMachine()
+        public List<IBall> GetUnExtractedBalls()
         {
             foreach (var item in balls)
             {
-                Console.WriteLine("");
+                if (item.IsExtracted() == false)
+                {
+                    unextractedBalls.Add(item);
+                }
+            }
+
+            return unextractedBalls;
+        }
+
+        public List<IBall> GetExtractedBalls()
+        {
+            foreach (var item in balls)
+            {
+                if (item.IsExtracted() == true)
+                {
+                    extractedBalls.Add(item);
+                }
+            }
+
+            return extractedBalls;
+        }
+
+        public void SetQuantityOfBalls(int quantityOfBalls)
+        {
+            this.quantityOfBalls = quantityOfBalls;
+        }
+
+
+        public void ShowBallMachine()
+        {
+
+            foreach (var item in balls)
+            {
+                Console.Write("");
                 item.ShowBall();
+            }
+        }
+
+        public void ShowExtractedBalls()
+        {
+            foreach (var item in balls)
+            {
+                if (item.IsExtracted() == true)
+                {
+                    Console.Write("");
+                    item.ShowBall();
+                }
+
             }
         }
     }

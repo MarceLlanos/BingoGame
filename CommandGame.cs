@@ -26,9 +26,9 @@ namespace BingoGame
                 helpCommand.CreateCommandExecutor().ExecuteCommand(command, new HelpAction());
                 playCommand.CreateCommandExecutor().ExecuteCommand(command, new PlayAction());
                 exitCommand.CreateCommandExecutor().ExecuteCommand(command, new ExitAction());
-                showCardsCommand.CreateCommandExecutor().ExecuteCommand(command, new CardSet());
-                showBallsCommand.CreateCommandExecutor().ExecuteCommand(command, new BallMachine());
-                showDropBallsCommand.CreateCommandExecutor().ExecuteCommand(command, new RandomExtractorBallsMachine(new UnExtractedBalls(new BallMachine())));
+                showCardsCommand.CreateCommandExecutor().ExecuteCommand(command, new CardSetFactory());
+                showBallsCommand.CreateCommandExecutor().ExecuteCommand(command, new BallMachineFactory());
+                showDropBallsCommand.CreateCommandExecutor().ExecuteCommand(command, new RandomExtractorBallsMachine());
                 takeOffBallsCommand.CreateCommandExecutor().ExecuteCommand(command, new RandomExtractorBallsMachineFactory());
 
                 if (service == null)

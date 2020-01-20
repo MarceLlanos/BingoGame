@@ -11,7 +11,7 @@ namespace BingoGame
 
         public ICard CreateCardForPlay(ServiceLocator service)
         {
-            var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameSettingFactory").CreateGameSetting(service);
+            var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameConfiguration").CreateGameSetting(service);
             var columnNumber = gameConfiguration.GetCardData().GetColumnNumber();
             var rangeDictionary = new RangeDictionaryFactory().CreateRangeDictionary(columnNumber);
 

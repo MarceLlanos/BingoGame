@@ -12,7 +12,7 @@ namespace BingoGame
         public ICommandExecutor<IUserInputConfiguration> CreateCommandExecutor()
         {
             var gameExecute = new CommandExecutor<IUserInputConfiguration>();
-            gameExecute.AddToDictionary("Bingo", new GameMenuCommand());
+            gameExecute.AddToDictionary("Bingo", null);
 
             return gameExecute;
         }
