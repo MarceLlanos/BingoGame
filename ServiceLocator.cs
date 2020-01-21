@@ -19,24 +19,26 @@ namespace BingoGame
         private void BuildServiceDictionary()
         {
             serviceDictionary.Add("gameConfiguration", new GameConfigurationFactory());
-            serviceDictionary.Add("randomExtracted", new RandomExtractorBallsMachine());
+            serviceDictionary.Add("extractedMachine", new RandomExtractorBallsMachineFactory());
             serviceDictionary.Add("ballMachine", new BallMachineFactory());
             serviceDictionary.Add("bingoDictonary", new BingoRangeDictionaryFiller());
             serviceDictionary.Add("housieDictonary", new HousieRangeDictionaryFiller());
             serviceDictionary.Add("randomNumbersGenerator", new RandomNumbersGenerator());
             serviceDictionary.Add("cardPrototypeFactory", new CardPrototypeFactory());
-            serviceDictionary.Add("cardSet", new CardSetFactory());
+            serviceDictionary.Add("cardSet", new CardSet(this));
+            serviceDictionary.Add("cardSetFactory", new CardSetFactory());
+            serviceDictionary.Add("cardFactory", new CardFactory());
+            serviceDictionary.Add("blankSpace", new BlankSpaceInjectorFactory());
             serviceDictionary.Add("gameInput", new GameMenuCommand());
             serviceDictionary.Add("userConfiguration", new UserInputConfiguration());
+            serviceDictionary.Add("cardDataFactory", new CardDataFactory());
+            serviceDictionary.Add("gameDataFactory", new GameDataFactory());
             serviceDictionary.Add("executeGame", new CommandGameExecutorFactory());
             serviceDictionary.Add("executeHelp", new CommandHelpExecutorFactory());
             serviceDictionary.Add("executePlay", new CommandPlayExecutorFactory());
             serviceDictionary.Add("executeExit", new CommandExitExecutorFactory());
             serviceDictionary.Add("executeShowCards", new CommandShowCardsExecutorFactory());
             serviceDictionary.Add("executeWinner", null);
-            serviceDictionary.Add("executeShowBalls", new CommandShowBallsExecutorFactory());
-            serviceDictionary.Add("executeDropBalls", new CommandDropBallsExecutorFactory());
-            serviceDictionary.Add("executeTakeOff", new CommandTakeOffBallsExecutorFactory());
         }
 
         public T GetService<T>(object key)

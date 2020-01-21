@@ -8,11 +8,12 @@ namespace BingoGame
 {
     public interface IBallMachine
     {
-        List<IBall> BallMaker();
+        List<IBall> BallMaker(IBall ball);
         void SetQuantityOfBalls(int quantityOfBalls);
-        List<IBall> GetBalls();
+        List<IBall> GetBalls(int quantityOfBallsToExtract);
         void ShowBallMachine();
         void ShowExtractedBalls();
+        void SetBalls(List<IBall> balls);
         List<IBall> GetExtractedBalls();
         List<IBall> GetUnExtractedBalls();
     }

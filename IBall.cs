@@ -11,6 +11,7 @@ namespace BingoGame
         int GetNumber();
         bool IsExtracted();
         void ShowBall();
+        void SetNumberBall(int numberBall);
         void SetIsExtracted(bool extracted);
     }
 }

@@ -27,7 +27,7 @@ namespace BingoGame
             userConfiguration.SetQuantityOfCards(int.Parse(quantityOfCards));
             var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameConfiguration").CreateGameSetting(service);
             
-            var cardSet = service.GetService<ICardSetFactory>("cardSet").CreateCardSet(service);
+            var cardSet = service.GetService<ICardSetFactory>("cardSetFactory").CreateCardSet(service);
             var ballMachine = service.GetService<IBallMachineFactory>("ballMachine").CreateBallMachine(service);
 
             Console.WriteLine("");

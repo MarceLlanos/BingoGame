@@ -11,9 +11,9 @@ namespace BingoGame
         List<ICard> cards;
         ServiceLocator service;
 
-        public CardSet()
+        public CardSet(ServiceLocator service)
         {
-            service = new ServiceLocator();
+            this.service = service;
             cards = new List<ICard>();
         }
 
@@ -30,7 +30,7 @@ namespace BingoGame
 
         public void ShowCards()
         {
-            var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameSettingFactory");
+            var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameConfiguration");
             var rowNumber = gameConfiguration.CreateGameSetting(service).GetCardData().GetRowNumber();
             var columnNumber = gameConfiguration.CreateGameSetting(service).GetCardData().GetColumnNumber();
 

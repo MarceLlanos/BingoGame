@@ -11,10 +11,9 @@ namespace BingoGame
         int numberBall;
         bool extracted;
 
-        public Ball(int numberBall, bool extracted)
+        public Ball(int numberBall)
         {
             this.numberBall = numberBall;
-            this.extracted = extracted;
         }
 
         public int GetNumber()
@@ -30,6 +29,11 @@ namespace BingoGame
         public void SetIsExtracted(bool extracted)
         {
             this.extracted = extracted;
+        }
+
+        public void SetNumberBall(int numberBall)
+        {
+            this.numberBall = numberBall;
         }
 
         public void ShowBall()

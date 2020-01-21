@@ -8,6 +8,6 @@ namespace BingoGame
 {
     public interface ICardPrototype
     {
-        ICard CreateCardPrototype(ICard card);
+        ICard CreateCardPrototype(ICard card, IRandomNumbersGenerator randomNumbersGenerator);
     }
 }

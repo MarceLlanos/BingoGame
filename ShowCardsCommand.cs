@@ -6,22 +6,13 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class ShowCardsCommand : ICommand<ICardSetFactory>
+    class ShowCardsCommand : ICommand<ServiceLocator>
     {
-        ServiceLocator service;
-
-        public ShowCardsCommand()
+        public void ExecuteCommand(ServiceLocator bingoComponent)
         {
-            service = new ServiceLocator();
-        }
+            var cardSet = bingoComponent.GetService<ICardSet>("cardSet");
 
-        public void ExecuteCommand(ICardSetFactory bingoComponent)
-        {
-            var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameConfiguration");
-            var quantityOfCards = gameConfiguration.CreateGameSetting(service).GetGameData().GetQuantityOfCards();
-            var cardPrototype = service.GetService<ICardPrototypeFactory>("cardPrototype");
-
-            bingoComponent.CreateCardSet(service).DrawDeckOfCards(quantityOfCards, cardPrototype);
+            cardSet.ShowCards();
         }
     }
 }

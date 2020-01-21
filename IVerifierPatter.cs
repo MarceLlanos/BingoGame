@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IBlankSpaceInjectorFactory
+    public interface IVerifierPatter
     {
-        ISpaceInjector CreateBlankSpacesInjector(ServiceLocator service, int quantityOfBlankSpaces);
+        bool IsThePatternCompleted(IPattern pattern, ICard card);
     }
 }

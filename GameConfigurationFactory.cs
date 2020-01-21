@@ -14,8 +14,8 @@ namespace BingoGame
             var optionNumber = userConfiguration.GetOptionGame();
             var quantityOfCards = userConfiguration.GetQuantityOfCards();
             var optionToWin = userConfiguration.GetOptionToWin();
-            var cardData = new CardDataFactory().CreateCardData(optionNumber);
-            var gameData = new GameDataFactory().CreateGameData(optionNumber, quantityOfCards);
+            var cardData = service.GetService<ICardDataFactory>("cardDataFactory").CreateCardData(optionNumber);
+            var gameData = service.GetService<IGameDataFactory>("gameDataFactory").CreateGameData(optionNumber, quantityOfCards);
 
             return new GameConfiguration(cardData, gameData, optionToWin);
         }

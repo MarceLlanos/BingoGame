@@ -8,6 +8,6 @@ namespace BingoGame
 {
     public interface IRandomExtractorBallsMachine
     {
-        List<IBall> ExtractRandomBallsFromMachine(IBallMachine ballMachine, int quantityToExtraction);
+        IBallMachine ExtractRandomBallsFromMachine(IBallMachine ballMachine, int quantityToExtraction);
     }
 }

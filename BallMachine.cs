@@ -11,34 +11,43 @@ namespace BingoGame
         List<IBall> balls;
         List<IBall> extractedBalls;
         List<IBall> unextractedBalls;
+        
+        IRandomNumbersGenerator randomNumbers;
         int quantityOfBalls;
 
         public BallMachine(int quantityOfBalls)
         {
             this.quantityOfBalls = quantityOfBalls;
-            balls = new List<IBall>();
             unextractedBalls = new List<IBall>();
-            extractedBalls = new List<IBall>();
+            balls = new List<IBall>();
+            randomNumbers = new RandomNumbersGenerator();
         }
 
-        public List<IBall> BallMaker()
+        public List<IBall> BallMaker(IBall ball)
         {
             int ballNumber = 0;
-            IBall ball = null;
 
             for (int i = 0; i < quantityOfBalls; i++)
             {
                 ballNumber += 1;
-                ball = new Ball(ballNumber, false);
+                ball = new Ball(ballNumber);
+                ball.SetIsExtracted(false);
                 balls.Add(ball);
             }
 
             return balls;
         }
 
-        public List<IBall> GetBalls()
+        public List<IBall> GetBalls(int quantityOfBallsToExtract)
         {
-            return balls;
+            extractedBalls = new List<IBall>();
+            for (int i = 0; i < quantityOfBallsToExtract; i++)
+            {
+                var ball = this.GetBall();
+                extractedBalls.Add(ball);
+            }
+
+            return extractedBalls;
         }
 
         public List<IBall> GetUnExtractedBalls()
@@ -94,6 +103,31 @@ namespace BingoGame
                 }
 
             }
+        }
+
+        public void SetBalls(List<IBall> balls)
+        {
+            this.balls = balls;
+        }
+
+        private IBall GetBall()
+        {
+            IBall result = null;
+
+            while (true)
+            {
+                var range = new Range(0, quantityOfBalls-1);
+                var index = randomNumbers.GenerateDistinctRandomNumbers(range, 1);
+
+                if (!balls[index[0]].IsExtracted())
+                {
+                    result = balls[index[0]];
+                    result.SetIsExtracted(true);
+                    break;
+                }
+            }
+
+            return result;
         }
     }
 }

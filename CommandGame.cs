@@ -14,9 +14,6 @@ namespace BingoGame
             var playCommand = service.GetService<CommandPlayExecutorFactory>("executePlay");
             var exitCommand = service.GetService<CommandExitExecutorFactory>("executeExit");
             var showCardsCommand = service.GetService<CommandShowCardsExecutorFactory>("executeShowCards");
-            var showBallsCommand = service.GetService<CommandShowBallsExecutorFactory>("executeShowBalls");
-            var showDropBallsCommand = service.GetService<CommandDropBallsExecutorFactory>("executeDropBalls");
-            var takeOffBallsCommand = service.GetService<CommandTakeOffBallsExecutorFactory>("executeTakeOff");
 
             while (true)
             {
@@ -26,10 +23,7 @@ namespace BingoGame
                 helpCommand.CreateCommandExecutor().ExecuteCommand(command, new HelpAction());
                 playCommand.CreateCommandExecutor().ExecuteCommand(command, new PlayAction());
                 exitCommand.CreateCommandExecutor().ExecuteCommand(command, new ExitAction());
-                showCardsCommand.CreateCommandExecutor().ExecuteCommand(command, new CardSetFactory());
-                showBallsCommand.CreateCommandExecutor().ExecuteCommand(command, new BallMachineFactory());
-                showDropBallsCommand.CreateCommandExecutor().ExecuteCommand(command, new RandomExtractorBallsMachine());
-                takeOffBallsCommand.CreateCommandExecutor().ExecuteCommand(command, new RandomExtractorBallsMachineFactory());
+                showCardsCommand.CreateCommandExecutor().ExecuteCommand(command, service);
 
                 if (service == null)
                 {

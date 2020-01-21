@@ -15,16 +15,20 @@ namespace BingoGame
             randomNumbers = new RandomNumbersGenerator();
         }
 
-        public List<IBall> ExtractRandomBallsFromMachine(IBallMachine ballMachine, int quantityToExtraction)
+        public IBallMachine ExtractRandomBallsFromMachine(IBallMachine ballMachine, int quantityToExtraction)
         {
             var balls = ballMachine.GetUnExtractedBalls();
-            var result = new List<IBall>();
             var ballsQuantity = balls.Count;
             var range = new Range(0, ballsQuantity-1);
 
             if (ballsQuantity <= quantityToExtraction)
             {
-                return result = balls;
+                foreach (var item in balls)
+                {
+                    item.SetIsExtracted(true);
+                }
+
+                return ballMachine;
             }
 
             var randomPositions = randomNumbers.GenerateDistinctRandomNumbers(range, quantityToExtraction);
@@ -33,10 +37,9 @@ namespace BingoGame
             {
                 var ball = balls[randomPositions[i]];
                 ball.SetIsExtracted(true);
-                result.Add(ball);
             }
 
-            return result;
+            return ballMachine;
         }
     }
 }

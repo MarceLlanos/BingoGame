@@ -16,15 +16,14 @@ namespace BingoGame
             var rangeDictionary = new RangeDictionaryFactory().CreateRangeDictionary(columnNumber);
 
             var cardPrototype = new CardPrototype(new ColumnRangeGetter(rangeDictionary), gameConfiguration);
-
             var cardData = gameConfiguration.GetCardData();
-
-            var card = new CardFactory().CreateCard(service);
-            var bingoCardPrototype = cardPrototype.CreateCardPrototype(card);
-
-            var blankSpaces = new BlankSpaceInjectorFactory().CreateBlankSpacesInjector(columnNumber);
+            var card = service.GetService<ICardFactory>("cardFactory").CreateCard(service);
+            var random = service.GetService<IRandomNumbersGenerator>("randomNumbersGenerator");
+            var bingoCard = cardPrototype.CreateCardPrototype(card, random);
             
-            return blankSpaces.InjectSpace(bingoCardPrototype, gameConfiguration);
+            var blankSpaces = service.GetService<IBlankSpaceInjectorFactory>("blankSpace").CreateBlankSpacesInjector(service, columnNumber);
+            
+            return blankSpaces.InjectSpace(bingoCard, gameConfiguration);
         }
     }
 }

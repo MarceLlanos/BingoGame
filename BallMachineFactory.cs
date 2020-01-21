@@ -13,9 +13,7 @@ namespace BingoGame
             var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameConfiguration");
             var quantityOfBalls = gameConfiguration.CreateGameSetting(service).GetGameData().GetQuantityOfBalls();
             var ballMachine = new BallMachine(quantityOfBalls);
-
-            ballMachine.BallMaker();
-
+            ballMachine.BallMaker(new Ball(0));
             return ballMachine;
         }
     }

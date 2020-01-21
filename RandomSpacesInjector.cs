@@ -10,9 +10,9 @@ namespace BingoGame
     {
         IRandomNumbersGenerator generator;
 
-        public RandomSpacesInjector()
+        public RandomSpacesInjector(IRandomNumbersGenerator generator)
         {
-            generator = new RandomNumbersGenerator();
+            this.generator = generator;
         }
 
         public ICard InjectSpace(ICard card, IGameConfiguration gameDataSetting)

@@ -53,16 +53,14 @@
     <Compile Include="CardFactory.cs" />
     <Compile Include="CardSetFactory.cs" />
     <Compile Include="CardSpaceFiller.cs" />
-    <Compile Include="CommandDropBallsExecutorFactory.cs" />
     <Compile Include="CommandExecutor.cs" />
     <Compile Include="CommandExitExecutorFactory.cs" />
     <Compile Include="CommandGame.cs" />
     <Compile Include="CommandGameExecutorFactory.cs" />
     <Compile Include="CommandHelpExecutorFactory.cs" />
     <Compile Include="CommandPlayExecutorFactory.cs" />
-    <Compile Include="CommandShowBallsExecutorFactory.cs" />
     <Compile Include="CommandShowCardsExecutorFactory.cs" />
-    <Compile Include="CommandTakeOffBallsExecutorFactory.cs" />
+    <Compile Include="DiagonalPattern.cs" />
     <Compile Include="ExitAction.cs" />
     <Compile Include="ExitCommand.cs" />
     <Compile Include="HelpCommand.cs" />
@@ -81,6 +79,7 @@
     <Compile Include="ICardSetFactory.cs" />
     <Compile Include="ICommandExecutor.cs" />
     <Compile Include="ICommandExecutorFactory.cs" />
+    <Compile Include="IPattern.cs" />
     <Compile Include="IUserInputConfiguration.cs" />
     <Compile Include="IExecutorActionCommand.cs" />
     <Compile Include="IExtractorBallsMachine.cs" />
@@ -95,6 +94,7 @@
     <Compile Include="IRandomExtractorBallsMachineFactory.cs" />
     <Compile Include="IServiceLocator.cs" />
     <Compile Include="IUnExtractedBalls.cs" />
+    <Compile Include="IVerifierPatter.cs" />
     <Compile Include="PlayAction.cs" />
     <Compile Include="PlayCommand.cs" />
     <Compile Include="RandomDrawBalls.cs" />
@@ -137,6 +137,7 @@
     <Compile Include="ShowWinnerCommand.cs" />
     <Compile Include="TakeOffBallsCommand.cs" />
     <Compile Include="UserInputConfiguration.cs" />
+    <Compile Include="VerifierPattern.cs" />
     <Compile Include="VerifierRepeatedCards.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,7 +13,7 @@ namespace BingoGame
             var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameConfiguration");
             var quantityOfCardsToCreate = gameConfiguration.CreateGameSetting(service).GetGameData().GetQuantityOfCards();
             var cardPrototype = service.GetService<ICardPrototypeFactory>("cardPrototypeFactory");
-            var cardSet = new CardSet();
+            var cardSet = service.GetService<ICardSet>("cardSet");
             cardSet.DrawDeckOfCards(quantityOfCardsToCreate, cardPrototype);
 
             return cardSet;

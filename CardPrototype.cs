@@ -8,7 +8,6 @@ namespace BingoGame
 {
     class CardPrototype : ICardPrototype
     {
-        IRandomNumbersGenerator randomNumbersGenerator;
         IColumnRangeGetter columnRangeGetter;
         IGameConfiguration gameDataSetting;
 
@@ -16,10 +15,9 @@ namespace BingoGame
         {
             this.gameDataSetting = gameDataSetting;
             this.columnRangeGetter = columnRangeGetter;
-            randomNumbersGenerator = new RandomNumbersGenerator();
         }
 
-        public ICard CreateCardPrototype(ICard card)
+        public ICard CreateCardPrototype(ICard card, IRandomNumbersGenerator randomNumbersGenerator)
         {
             var rowNumber = gameDataSetting.GetCardData().GetRowNumber();
             var columnNumber = gameDataSetting.GetCardData().GetColumnNumber();
