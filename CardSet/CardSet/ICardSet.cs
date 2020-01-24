@@ -9,5 +9,6 @@ namespace BingoGame
         void ShowCrosoutCards();
         List<ICard> GetCards();
         void CrossoutCards(List<IBall> ballsExtracted);
+        void PrintCards(List<ICard> cardSet);
     }
 }

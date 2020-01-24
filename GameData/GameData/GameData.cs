@@ -10,9 +10,11 @@ namespace BingoGame
     {
         int quantityOfBalls;
         int quantityOfCards;
+        int wayToWin;
 
-        public GameData(int quantityOfBalls, int quantityOfCards)
+        public GameData(int quantityOfBalls, int quantityOfCards, int wayToWin)
         {
+            this.wayToWin = wayToWin;
             this.quantityOfBalls = quantityOfBalls;
             this.quantityOfCards = quantityOfCards;
         }
@@ -27,6 +29,11 @@ namespace BingoGame
             return quantityOfCards;
         }
 
+        public int GetWayToWin()
+        {
+            return wayToWin;
+        }
+
         public void SetQuantityOfBalls(int quantityOfBalls)
         {
             this.quantityOfBalls = quantityOfBalls;
@@ -35,6 +42,11 @@ namespace BingoGame
         public void SetQuantityOfCards(int quantityOfCards)
         {
             this.quantityOfCards = quantityOfCards;
+        }
+
+        public void SetWayToWin(int wayToWin)
+        {
+            this.wayToWin = wayToWin;
         }
     }
 }

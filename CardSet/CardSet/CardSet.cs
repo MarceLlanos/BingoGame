@@ -41,39 +41,24 @@ namespace BingoGame
             var columnNumber = cardInformation.GetCardData().GetColumnNumber();
             var rowNumber = cardInformation.GetCardData().GetRowNumber();
 
-            foreach (var item in cardsCrossOut)
+            foreach (var card in cardsCrossOut)
             {
-                for (int  i = 0;  i < columnNumber ;  i++)
-                {
-                    for (int j = 0; j < rowNumber; j++)
-                    {
-                        foreach (var ball in ballsExtracted)
-                        {
-                            var ballValue = string.Format("{0}", ball.GetNumber());
-
-                            if (item.GetCardBoard()[i, j].Equals(ballValue))
-                            {
-                                item.GetCardBoard()[i,j] = " * ";
-                            }
-                        }
-                    }
-
-                }
+                card.CrossoutCard(ballsExtracted, columnNumber, rowNumber);
             }
-
         }
+
 
         public void ShowCrosoutCards()
         {
-            ShowCards(cardsCrossOut);
+            PrintCards(cardsCrossOut);
         }
 
         public void ShowCards()
         {
-            ShowCards(cards);
+            PrintCards(cards);
         }
 
-        private void ShowCards(List<ICard> cardSet)
+        public void PrintCards(List<ICard> cardSet)
         {
             var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameConfiguration");
             var rowNumber = gameConfiguration.CreateGameSetting(service).GetCardData().GetRowNumber();

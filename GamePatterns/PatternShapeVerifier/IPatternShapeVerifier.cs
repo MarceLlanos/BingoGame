@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IVerifierPattern
+    public interface IPatternShapeVerifier
     {
-        bool IsThePatternCompleted(IPattern pattern, List<ICard> card);
+        ICard VerifyIfCardCompleteAPattern(IPatternShape patternShape, ICardSet cardset);
     }
 }

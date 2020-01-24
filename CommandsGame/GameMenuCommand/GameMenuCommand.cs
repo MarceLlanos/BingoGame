@@ -20,11 +20,18 @@ namespace BingoGame
             var typeOfGame = Console.ReadLine();
 
             Console.WriteLine("");
+            Console.WriteLine("Choose way to win the game.");
+            Console.WriteLine("1= Win the game if someone shape one of the patterns shape.");
+            Console.WriteLine("2= Win the game if someone full the card.");
+            var wayToWin = Console.ReadLine();
+
+            Console.WriteLine("");
             Console.WriteLine("How many cards do you want?");
             var quantityOfCards = Console.ReadLine();
 
             userConfiguration.SetOptionGame(int.Parse(typeOfGame));
             userConfiguration.SetQuantityOfCards(int.Parse(quantityOfCards));
+            userConfiguration.SetOptionGame(int.Parse(wayToWin));
             var gameConfiguration = service.GetService<IGameConfigurationFactory>("gameConfiguration").CreateGameSetting(service);
             
             var cardSet = service.GetService<ICardSetFactory>("cardSetFactory").CreateCardSet(service);

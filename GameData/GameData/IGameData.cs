@@ -10,6 +10,8 @@ namespace BingoGame
     {
         int GetQuantityOfBalls();
         int GetQuantityOfCards();
+        int GetWayToWin();
+        void SetWayToWin(int wayToWin);
         void SetQuantityOfBalls(int quantityOfBalls);
         void SetQuantityOfCards(int quantityOfCards);
     }

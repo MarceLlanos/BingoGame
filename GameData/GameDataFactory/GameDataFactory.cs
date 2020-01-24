@@ -8,15 +8,15 @@ namespace BingoGame
 {
     class GameDataFactory : IGameDataFactory
     {
-        public IGameData CreateGameData(int optionNumber, int quantityOfCards)
+        public IGameData CreateGameData(int optionNumber, int quantityOfCards, int wayToWin)
         {
             switch (optionNumber)
             {
-                case 1: return new GameData(75, quantityOfCards);
-                case 2: return new GameData(90, quantityOfCards);
+                case 1: return new GameData(75, quantityOfCards, wayToWin);
+                case 2: return new GameData(90, quantityOfCards, wayToWin);
             }
 
-            return new GameData(75, quantityOfCards);
+            return new GameData(75, quantityOfCards, wayToWin);
         }
     }
 }

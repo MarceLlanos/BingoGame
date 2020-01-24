@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    public interface IPattern
+    public interface IWinnerCardsFactory
     {
-        List<string> IsThisPatternPosition(ICard card);
+        List<ICard> CreateCardsVerified(ServiceLocator service);
     }
 }

@@ -10,5 +10,6 @@ namespace BingoGame
     {
         string[,] GetCardBoard();
         string PrintRow(int rowIndex, int columnNumber);
+        void CrossoutCard(List<IBall> ballsExtracted, int columnNumber, int rowNumber);
     }
 }

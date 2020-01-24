@@ -41,6 +41,33 @@ namespace BingoGame
             serviceDictionary.Add("executeExit", new CommandExitExecutorFactory());
             serviceDictionary.Add("executeShowCards", new CommandShowExecutorFactory());
             serviceDictionary.Add("executeWinner", null);
+            serviceDictionary.Add("diagonal", new DiagonalPattern());
+            serviceDictionary.Add("diagonalInverted", new DiagonalInvertedPattern());
+            serviceDictionary.Add("doubleDiagonal",new DoubleDiagonalPattern());
+            serviceDictionary.Add("fourCorners", new FourCornersPattern());
+            serviceDictionary.Add("fullCard", new FullCardBingoPattern());
+            serviceDictionary.Add("horizontalOne", new HorizontalLineOnePattern());
+            serviceDictionary.Add("horizontalTwo", new HorizontalLineTwoPattern());
+            serviceDictionary.Add("horizontalThree", new HorizoltalLineThreePattern());
+            serviceDictionary.Add("horizontalFour", new HorizontalLineFourPattern());
+            serviceDictionary.Add("horizontalFive", new HorizontalLineFivePattern());
+            serviceDictionary.Add("verticalOne", new VerticalLineOnePattern());
+            serviceDictionary.Add("verticalTwo", new VerticalLineTwoPattern());
+            serviceDictionary.Add("verticalThree", new VerticalLineThreePattern());
+            serviceDictionary.Add("verticalFour", new VerticalLineFourPattern());
+            serviceDictionary.Add("verticalFive", new VerticalLineFivePattern());
+            serviceDictionary.Add("lNormal", new LPattern());
+            serviceDictionary.Add("lInverted", new LInvertedPattern());
+            serviceDictionary.Add("square", new SquarePattern());
+            serviceDictionary.Add("fullHouse", new FullHousePattern());
+            serviceDictionary.Add("oneLineOne", new OneLineZeroPattern());
+            serviceDictionary.Add("oneLineTwo", new OneLineOnePattern());
+            serviceDictionary.Add("oneLineThree", new OneLineTwoPattern());
+            serviceDictionary.Add("twoLineOne", new TwoLineOnePattern());
+            serviceDictionary.Add("twoLineTwo", new TwoLineTwoPattern());
+            serviceDictionary.Add("twoLineThree", new TwoLineThreePattern());
+            serviceDictionary.Add("patternShapeFactory", new PatternShapeFactory());
+            serviceDictionary.Add("patternShapeVerifier", new PatternShapeVerifier());
         }
 
         public T GetService<T>(object key)
