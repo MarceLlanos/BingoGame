@@ -12,7 +12,7 @@ namespace BingoGame
         {
             var cardSet = bingoComponent.GetService<ICardSet>("cardSet");
 
-            cardSet.ShowCrosoutCards();
+            cardSet.ShowCards();
         }
     }
 }

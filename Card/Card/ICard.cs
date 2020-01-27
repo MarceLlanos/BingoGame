@@ -8,8 +8,11 @@ namespace BingoGame
 {
     public interface ICard
     {
-        string[,] GetCardBoard();
+        ICell[,] GetCardBoard();
+        ICell GetCell();
         string PrintRow(int rowIndex, int columnNumber);
         void CrossoutCard(List<IBall> ballsExtracted, int columnNumber, int rowNumber);
+        void SetCell(ICell cell);
+        IPattern GetPatterCompleted(IPattern pattern);
     }
 }

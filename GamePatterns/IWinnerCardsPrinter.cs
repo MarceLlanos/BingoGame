@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoGame
 {
-    class FullHouseVerifier 
+    public interface IWinnerCardsPrinted
     {
-        public List<ICard> GetWinnerCards(IPattern pattern, ICardSet cardset)
-        {
-            return null;
-        }
+        List<ICard> ShowWinnerCards(ServiceLocator service);
     }
 }

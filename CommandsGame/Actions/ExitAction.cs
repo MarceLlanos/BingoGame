@@ -10,8 +10,8 @@ namespace BingoGame
     {
         public void ShowAction()
         {
+            System.Environment.Exit(-1);
             Console.WriteLine("Come Back Soon!");
-            Environment.Exit(0);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace BingoGame
             var gameconfiguration = service.GetService<IGameConfigurationFactory>("gameConfiguration").CreateGameSetting(service);
             var columnNumbers = gameconfiguration.GetCardData().GetColumnNumber();
             var rowNumbers = gameconfiguration.GetCardData().GetRowNumber();
-            var cardBoard = new string[columnNumbers, rowNumbers];
+            var cardBoard = new Cell[columnNumbers, rowNumbers];
 
             return new Card(cardBoard);
         }

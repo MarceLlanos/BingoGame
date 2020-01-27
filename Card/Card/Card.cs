@@ -8,14 +8,16 @@ namespace BingoGame
 {
     class Card : ICard
     {
-        string[,] cardBoard;
+        ICell[,] cardBoard;
+        ICell cell;
 
-        public Card(string[,] cardBoard)
+
+        public Card(ICell[,] cardBoard)
         {
             this.cardBoard = cardBoard;
         }
 
-        public string[,] GetCardBoard()
+        public ICell[,] GetCardBoard()
         {
             return cardBoard;
         }
@@ -29,10 +31,11 @@ namespace BingoGame
                     foreach (var ball in ballsExtracted)
                     {
                         var ballValue = string.Format("{0}", ball.GetNumber());
+                        var cell = GetCardBoard()[i, j];
 
-                        if (GetCardBoard()[i, j].Equals(ballValue))
+                        if (cell.GetValueCell().Equals(ballValue))
                         {
-                            GetCardBoard()[i, j] = " *";
+                            GetCardBoard()[i, j].SetCrossoutTheCell(true);
                         }
                     }
                 }
@@ -46,10 +49,35 @@ namespace BingoGame
 
             for (int i = 0; i < columnNumber; i++)
             {
-                rowPrinted += cardBoard[i, rowIndex] + " ";
+                var cell = cardBoard[i, rowIndex];
+                if (cell.IsCrossoutTheCell() == true)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    cell.PrintCell();
+                }
+                else if(cell.IsCrossoutTheCell() == false)
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    cell.PrintCell();
+                }
             }
 
             return rowPrinted;
+        }
+
+        public ICell GetCell()
+        {
+            return cell;
+        }
+
+        public void SetCell(ICell cell)
+        {
+            this.cell = cell;
+        }
+
+        public IPattern GetPatterCompleted(IPattern pattern)
+        {
+            return pattern;
         }
     }
 }

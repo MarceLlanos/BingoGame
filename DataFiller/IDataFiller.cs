@@ -8,6 +8,6 @@ namespace BingoGame
 {
     public interface IDataFiller
     {
-        string[,] FillData(List<int> randomNumbers, int column);
+        ICell[,] FillData(List<int> randomNumbers, int column);
     }
 }

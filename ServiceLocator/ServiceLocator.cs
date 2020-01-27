@@ -18,18 +18,22 @@ namespace BingoGame
 
         private void BuildServiceDictionary()
         {
-            serviceDictionary.Add("gameConfiguration", new GameConfigurationFactory());
+            serviceDictionary.Add("cardSet", new CardSet(this));
+            serviceDictionary.Add("cardSetFactory", new CardSetFactory());
+            serviceDictionary.Add("cardFactory", new CardFactory());
+            serviceDictionary.Add("cardPrototypeFactory", new CardPrototypeFactory());
+
             serviceDictionary.Add("extractedMachine", new RandomExtractorBallsMachineFactory());
             serviceDictionary.Add("ballMachine", new BallMachine());
             serviceDictionary.Add("ballMachineFactory", new BallMachineFactory());
+
+            serviceDictionary.Add("gameConfiguration", new GameConfigurationFactory());
+            
             serviceDictionary.Add("rangeDictionaryFactory", new RangeDictionaryFactory());
             serviceDictionary.Add("bingoDictonary", new BingoRangeDictionaryFiller());
             serviceDictionary.Add("housieDictonary", new HousieRangeDictionaryFiller());
             serviceDictionary.Add("randomNumbersGenerator", new RandomNumbersGenerator());
-            serviceDictionary.Add("cardPrototypeFactory", new CardPrototypeFactory());
-            serviceDictionary.Add("cardSet", new CardSet(this));
-            serviceDictionary.Add("cardSetFactory", new CardSetFactory());
-            serviceDictionary.Add("cardFactory", new CardFactory());
+            
             serviceDictionary.Add("blankSpace", new BlankSpaceInjectorFactory());
             serviceDictionary.Add("gameInput", new GameMenuCommand());
             serviceDictionary.Add("userConfiguration", new UserInputConfiguration());
@@ -66,8 +70,8 @@ namespace BingoGame
             serviceDictionary.Add("twoLineOne", new TwoLineOnePattern());
             serviceDictionary.Add("twoLineTwo", new TwoLineTwoPattern());
             serviceDictionary.Add("twoLineThree", new TwoLineThreePattern());
-            serviceDictionary.Add("patternShapeFactory", new PatternShapeFactory());
-            serviceDictionary.Add("patternShapeVerifier", new PatternShapeVerifier());
+            serviceDictionary.Add("patternShapeFactory", new PatternFactory());
+            serviceDictionary.Add("patternShapeVerifier", new PatternVerifier());
         }
 
         public T GetService<T>(object key)

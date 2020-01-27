@@ -21,7 +21,7 @@ namespace BingoGame
             var middleRow = Math.Floor(rowDivision);
             var cardBoard = card.GetCardBoard();
 
-            cardBoard[decimal.ToInt32(middleColumn), decimal.ToInt32(middleRow)] = " * ";
+            cardBoard[decimal.ToInt32(middleColumn), decimal.ToInt32(middleRow)].SetVelueOfCell(" * ");
 
             return card;
         }

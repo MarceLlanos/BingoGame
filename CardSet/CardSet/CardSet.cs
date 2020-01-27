@@ -9,7 +9,6 @@ namespace BingoGame
     class CardSet : ICardSet
     {
         List<ICard> cards;
-        List<ICard> cardsCrossOut;
         ServiceLocator service;
 
         public CardSet(ServiceLocator service)
@@ -25,9 +24,6 @@ namespace BingoGame
                 cards.Add(cardPrototype.CreateCardForPlay(service));
                 quantityOfCards -= 1;
             }
-
-            cardsCrossOut = new List<ICard>(cards);
-
         }
 
         public List<ICard> GetCards()
@@ -41,16 +37,10 @@ namespace BingoGame
             var columnNumber = cardInformation.GetCardData().GetColumnNumber();
             var rowNumber = cardInformation.GetCardData().GetRowNumber();
 
-            foreach (var card in cardsCrossOut)
+            foreach (var card in cards)
             {
                 card.CrossoutCard(ballsExtracted, columnNumber, rowNumber);
             }
-        }
-
-
-        public void ShowCrosoutCards()
-        {
-            PrintCards(cardsCrossOut);
         }
 
         public void ShowCards()
@@ -68,7 +58,6 @@ namespace BingoGame
             {
                 for (int i = 0; i < rowNumber; i++)
                 {
-
                     Console.WriteLine(item.PrintRow(i, columnNumber));
                 }
 
